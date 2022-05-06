@@ -2,6 +2,8 @@ package com.spring.nordicmotorhomes;
 
 public class Employee {
 
+    //ATTRIBUTES
+    
     private int employee_ID;
     private String first_name;
     private String last_name;
@@ -10,7 +12,7 @@ public class Employee {
     private String title;
     private String email;
 
-    //constructor
+    //CONSTRUCTOR
 
     public Employee(int employee_ID, String first_name, String last_name, int phone_number, int CPR, String title, String email) {
         this.employee_ID = employee_ID;
@@ -23,7 +25,7 @@ public class Employee {
     }
 
 
-    //setters and getters
+    //SETTERS AND GETTERS
 
     public int getEmployee_ID() {
         return employee_ID;
