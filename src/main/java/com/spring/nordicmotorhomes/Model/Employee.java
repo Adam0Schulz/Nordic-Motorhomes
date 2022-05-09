@@ -4,18 +4,17 @@ public class Employee {
 
     //ATTRIBUTES
 
-    private int employee_ID;
     private String first_name;
     private String last_name;
     private int phone_number;
     private int CPR;
     private String title;
     private String email;
+    private String password;
 
     //CONSTRUCTOR
 
-    public Employee(int employee_ID, String first_name, String last_name, int phone_number, int CPR, String title, String email) {
-        this.employee_ID = employee_ID;
+    public Employee(String first_name, String last_name, int phone_number, int CPR, String title, String email) {
         this.first_name = first_name;
         this.last_name = last_name;
         this.phone_number = phone_number;
@@ -26,14 +25,6 @@ public class Employee {
 
 
     //SETTERS AND GETTERS
-
-    public int getEmployee_ID() {
-        return employee_ID;
-    }
-
-    public void setEmployee_ID(int employee_ID) {
-        this.employee_ID = employee_ID;
-    }
 
     public String getFirst_name() {
         return first_name;
@@ -82,4 +73,8 @@ public class Employee {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPassword() { return password; }
+
+
 }
