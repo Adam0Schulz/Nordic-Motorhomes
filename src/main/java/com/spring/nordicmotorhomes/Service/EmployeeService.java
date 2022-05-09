@@ -13,7 +13,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeDAO employeeDAO;
 
-    public Employee Login(String username, String password) {
+    public Employee login(String username, String password) {
 
         Employee employee = null;
         ArrayList<Employee> employees = (ArrayList<Employee>) employeeDAO.fetchAllEmployees();
