@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: #F0ECE3;
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 20px auto 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.logo {
+    margin: 30px auto 0 auto;
+    width: 235px;
+    height: 115px;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 100%;
+    height: 425px;
+    padding: 60px;
+    background: #FFFEFA;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.camper-img {
+    max-width: 45% ;
+    
+}
+
+form {
+    max-width: 45%;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 44px;
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #898989;
+    padding: 10px 0 32px 0;
+}
+
+label {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+input {
+background: #FFFFFF;
+border: 1px solid #D0D5DD;
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+border-radius: 8px;
+box-sizing: border-box;
+width: 360px;
+height: 44px;
+margin: 5px 0 15px 0;
+padding-left: 10px;
+}
+
+
+button {
+width: 360px;
+height: 44px;
+background: #939878;
+border: 1px solid #939878;
+box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+border-radius: 8px;
+font-weight: 500;
+font-size: 16px;
+line-height: 24px;
+color: #FFFFFF;
+}
+
+button:hover {
+    background: #5E6748;
+}
+
+
+  @media(max-width: 800px) {
+    .container {
+        flex-direction: column;
+        height: 500px;
+        padding: 30px;
+    }
+
+    h2, p {
+        text-align: center;
+    }
+  }
+
+  @media(max-width: 320px) {
+
+
+    .logo {
+        width: 50%;
+        height: 50%;
+        margin: 15px auto;
+    }
+
+    .container {
+        height: 350px;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .camper-img {
+       display: none;
+    }
+
+    input {
+        width: 270px;
+    }
+
+    button {
+        width: 270px;
+       
+    }
+
+
+
+  
+  }
+
