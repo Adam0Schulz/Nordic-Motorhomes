@@ -79,7 +79,7 @@ input {
     margin:0.5rem 0.3rem 0.5rem 0;
 }
 
-form:nth-child(5) {
+.login-btn {
     width: 22.5rem;
     height: 2.75rem;
     background: #939878;
@@ -96,7 +96,7 @@ form:nth-child(5) {
     transition: all 0.2s;
 }
 
-form:nth-child(5):hover {
+.login-btn:hover {
     background: #5E6748;
 }
 
@@ -104,7 +104,7 @@ form:nth-child(5):hover {
     color: #B2391A;
 }
 
-input .error-active {
+input.error-active {
     border: 1px solid #B2391A;
 }
 

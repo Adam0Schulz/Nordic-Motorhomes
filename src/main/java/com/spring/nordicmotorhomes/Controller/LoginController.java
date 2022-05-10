@@ -22,14 +22,14 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        model.addAttribute("emp", null);
+        model.addAttribute("emp", "");
         return "login/index";
     }
 
     @PostMapping("/login")
     public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model) {
         Employee currentEmp  = employeeService.login(email, password);
-        model.addAttribute("emp", email);
+        model.addAttribute("emp", currentEmp);
         return "login/index";
     }
 
