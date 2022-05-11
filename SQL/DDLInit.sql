@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS Nordic_Motorhomes;
 
 USE Nordic_Motorhomes;
 
-CREATE TABLE IF NOT EXISTS motorhome (
+CREATE TABLE IF NOT EXISTS motorhomes (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     brand varchar(255),
     model varchar(255),
@@ -15,13 +15,13 @@ CREATE TABLE IF NOT EXISTS motorhome (
     mileage int(10)
 );
 
-CREATE TABLE IF NOT EXISTS extra (
+CREATE TABLE IF NOT EXISTS extras (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     type varchar(255),
     price float(10)
 );
 
-CREATE TABLE IF NOT EXISTS customer (
+CREATE TABLE IF NOT EXISTS customers (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     first_name varchar(255),
     last_name varchar(255),
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS customer (
     CPR int(10)
 );
 
-CREATE TABLE IF NOT EXISTS employee (
+CREATE TABLE IF NOT EXISTS employees (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     first_name varchar(255),
     last_name varchar(255),
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS employee (
     password varchar(255)
 );
 
-CREATE TABLE IF NOT EXISTS booking (
+CREATE TABLE IF NOT EXISTS bookings (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     customer_ID int(10),
     start_date date,
@@ -52,17 +52,17 @@ CREATE TABLE IF NOT EXISTS booking (
     drop_off_loc varchar(255),
     total_price float(10),
     fuel_level float(10),
-    FOREIGN KEY (customer_ID) REFERENCES customer(ID),
-    FOREIGN KEY (motorhome_ID) REFERENCES motorhome(ID),
-    FOREIGN KEY (employee_ID) REFERENCES employee(ID)
+    FOREIGN KEY (customer_ID) REFERENCES customers(ID),
+    FOREIGN KEY (motorhome_ID) REFERENCES motorhomes(ID),
+    FOREIGN KEY (employee_ID) REFERENCES employees(ID)
 );
 
 CREATE TABLE IF NOT EXISTS booking_extras (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     booking_ID int(10) ,
     extra_ID int(10),
-    FOREIGN KEY (booking_ID) REFERENCES booking(ID),
-    FOREIGN KEY (extra_ID) REFERENCES extra(ID)
+    FOREIGN KEY (booking_ID) REFERENCES bookings(ID),
+    FOREIGN KEY (extra_ID) REFERENCES extras(ID)
 
 );
 
