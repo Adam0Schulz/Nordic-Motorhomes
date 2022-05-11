@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS customers (
     first_name varchar(255),
     last_name varchar(255),
     phone_number int(12),
+    email varchar(400),
     CPR int(10)
 );
 
