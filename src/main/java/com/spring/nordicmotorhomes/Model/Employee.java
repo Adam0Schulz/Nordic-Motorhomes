@@ -3,12 +3,11 @@ package com.spring.nordicmotorhomes.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+
 public class Employee {
 
     //ATTRIBUTES
 
-    @Id
     private int id;
     private String firstName;
     private String lastName;
