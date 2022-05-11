@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS booking (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     customer_ID int(10),
     start_date date,
+    pick_up_time time,
     end_date date,
     motorhome_ID int(10),
     employee_ID int(10),
