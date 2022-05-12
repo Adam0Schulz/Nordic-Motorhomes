@@ -4,12 +4,17 @@ CREATE DATABASE IF NOT EXISTS Nordic_Motorhomes;
 
 USE Nordic_Motorhomes;
 
+
+ALTER TABLE motorhomes ALTER COLUMN availability boolean;
+
+DESC motorhomes;
+
 CREATE TABLE IF NOT EXISTS motorhomes (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     brand varchar(255),
     model varchar(255),
     capacity int(10),
-    availability BOOLEAN,
+    availability tinyint(1),
     reg_number varchar(255),
     base_price float(10),
     mileage int(10)
