@@ -1,18 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
+    /* Variables */
+    --background-color: #D4D5CF;
+    --container-background: #FAFAFA;
+
+    --wrapper-width: 1100px;
+
     padding: 0;
     margin: 0;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    box-sizing: border-box;
 }
 
 body {
-    background: #F0ECE3;
+    background: var(--background-color);
 }
 
 .wrapper {
-    max-width: 1100px;
+    max-width: var(--wrapper-width);
+    height: 100vh;
     margin: 20px auto 0 auto;
     display: flex;
     justify-content: center;
@@ -29,13 +37,27 @@ body {
     max-width: 200vw;
     max-height: 150vh;
     padding: 3.75rem;
-    background: #FFFEFA;
+    background: var(--container-background);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin: 0 auto;
+}
+
+.container::before {
+    background-image: url(images/logo.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    object-fit: contain;
+    max-width: 220px;
+    position: absolute;
+    top: 5%;
+    content: "";
+    width: 20%;
+    height: 20%;
 }
 
 .camper-img {
@@ -72,14 +94,13 @@ input {
     border: 1px solid #D0D5DD;
     box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
-    box-sizing: border-box;
     width: 22.5rem;
     height: 2.75rem;
     padding:0.35rem 1.2rem;
     margin:0.5rem 0.3rem 0.5rem 0;
 }
 
-form:nth-child(5) {
+.login-btn {
     width: 22.5rem;
     height: 2.75rem;
     background: #939878;
@@ -90,13 +111,12 @@ form:nth-child(5) {
     font-size: 1rem;
     line-height: 1.5rem;
     color: #FFFFFF;
-    box-sizing: border-box;
     padding:0.35rem 1.2rem;
     margin:0.5rem 0.3rem 0.5rem 0;
     transition: all 0.2s;
 }
 
-form:nth-child(5):hover {
+.login-btn:hover {
     background: #5E6748;
 }
 
@@ -104,7 +124,7 @@ form:nth-child(5):hover {
     color: #B2391A;
 }
 
-input .error-active {
+input.error-active {
     border: 1px solid #B2391A;
 }
 
@@ -123,6 +143,12 @@ input .error-active {
     input,button {
         width: 19rem ;
     }
+
+    .container::before {
+        top: -15%;
+        width: 50%;
+        height: 50%;
+    }
   }
 
   @media(max-width: 320px) {
@@ -135,8 +161,14 @@ input .error-active {
     }
 
     .container {
-        max-height: 22rem;
+        max-height: 30rem;
     }
+
+    .container::before {
+        top: -25%;
+        width: 80%;
+        height: 80%;
+      }
 
     h2 {
         font-size: 1.5rem;

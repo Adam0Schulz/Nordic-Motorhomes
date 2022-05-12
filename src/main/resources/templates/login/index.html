@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Welcome</title>
+    <title>Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/NM.ico">
@@ -15,7 +15,6 @@
 </head>
 <body>
 <div class="wrapper">
-    <img class="logo" src="/images/logo.png" alt="logo-img">
     <div class="container">
         <img class="camper-img" src="/images/camper.png" alt="van-img">
         <div>
@@ -23,11 +22,11 @@
             <p>Welcome back! Please enter your details.</p>
             <form method="post">
                 <label for="email">Email</label><br>
-                <input type="email" name="email" id="email" placeholder="Enter your email"><br>
+                <input th:classappend="${emp} == null ? error-active " type="email" name="email" id="email" placeholder="Enter your email"><br>
                 <label for="password">Password</label><br>
-                <input type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"><br>
-                <input type="submit" value="Login">
-                <label th:text="${emp}"></label>
+                <input th:classappend="${emp} == null ? error-active " type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"><br>
+                <input class="login-btn" type="submit" value="Login">
+                <p th:if="${emp} == null"  class="error">Incorrect email or password!</p>
             </form>
         </div>
     </div>

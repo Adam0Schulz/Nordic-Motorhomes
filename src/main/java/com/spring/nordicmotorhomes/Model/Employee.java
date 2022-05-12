@@ -1,37 +1,31 @@
 package com.spring.nordicmotorhomes.Model;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Entity // This tells Hibernate to make a table out of this class
 
 public class Employee {
 
     //ATTRIBUTES
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer ID;
+
+    private int id;
     private String firstName;
     private String lastName;
     private int phoneNum;
     private int CPR;
     private String title;
-
     private String email;
     private String password;
 
     //CONSTRUCTOR
 
-    public Employee(String first_name, String last_name, int phone_number, int CPR, String title, String email, String password) {
+    public Employee(String first_name, String last_name, int phone_number, int CPR, String title, String email) {
         this.firstName = first_name;
         this.lastName = last_name;
         this.phoneNum = phone_number;
         this.CPR = CPR;
         this.title = title;
         this.email = email;
-        this.password = password;
-    }
-    public Employee(){
-
     }
 
 
@@ -87,29 +81,5 @@ public class Employee {
 
     public String getPassword() { return password; }
 
-    public Integer getID() {
-        return ID;
-    }
-
-    public void setID(Integer ID) {
-        this.ID = ID;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phoneNum=" + phoneNum +
-                ", CPR=" + CPR +
-                ", title='" + title + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
 
 }
