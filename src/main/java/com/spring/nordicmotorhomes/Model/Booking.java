@@ -4,50 +4,47 @@ import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
 
+@Entity
 
 public class Booking {
-
-    private int id;
-    private Customer customer;
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private int ID;
+    private int customerID;
     private Date startDate;
     private Time pickUpTime;
     private Date endDate;
-    private Motorhome motorhome;
-    private Employee employee;
+    private int motorhomeID;
+    private int employeeID;
     private String pickUpLocation;
     private String dropOffLocation;
     private double totalPrice;
     private double fuelLevel;
 
-    public Booking(int id, Customer customer, Date startDate, Time pickUpTime, Date endDate, Motorhome motorhome, Employee employee, String pickUpLocation, String dropOffLocation, double totalPrice, double fuelLevel) {
-        this.id = id;
-        this.customer = customer;
+    public Booking(Date startDate, Time pickUpTime, Date endDate, int motorhomeID, int employeeID, String pickUpLocation, String dropOffLocation, double totalPrice, double fuelLevel) {
         this.startDate = startDate;
         this.pickUpTime = pickUpTime;
         this.endDate = endDate;
-        this.motorhome = motorhome;
-        this.employee = employee;
+        this.motorhomeID = motorhomeID;
+        this.employeeID = employeeID;
         this.pickUpLocation = pickUpLocation;
         this.dropOffLocation = dropOffLocation;
         this.totalPrice = totalPrice;
         this.fuelLevel = fuelLevel;
     }
 
-    public int getId() {
-        return id;
+    public Booking(){
+
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getID() {
+        return ID;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public void setID(int id) {
+        this.ID = id;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
     public Date getStartDate() {
         return startDate;
@@ -71,22 +68,6 @@ public class Booking {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    public Motorhome getMotorhome() {
-        return motorhome;
-    }
-
-    public void setMotorhome(Motorhome motorhome) {
-        this.motorhome = motorhome;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
     }
 
     public String getPickUpLocation() {
@@ -119,5 +100,29 @@ public class Booking {
 
     public void setFuelLevel(double fuelLevel) {
         this.fuelLevel = fuelLevel;
+    }
+
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
+    }
+
+    public int getMotorhomeID() {
+        return motorhomeID;
+    }
+
+    public void setMotorhomeID(int motorhomeID) {
+        this.motorhomeID = motorhomeID;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
     }
 }

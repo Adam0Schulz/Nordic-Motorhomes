@@ -1,13 +1,17 @@
 package com.spring.nordicmotorhomes.Model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 
 public class Motorhome {
 
     //ATTRIBUTES
-
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
     private String brand;
     private String model;
@@ -27,6 +31,10 @@ public class Motorhome {
         this.reg_number = reg_number;
         this.base_price = base_price;
         this.mileage = mileage;
+    }
+
+    public Motorhome() {
+
     }
 
     //SETTERS AND GETTERS

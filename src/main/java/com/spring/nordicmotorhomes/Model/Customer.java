@@ -2,21 +2,26 @@ package com.spring.nordicmotorhomes.Model;
 
 import javax.persistence.*;
 
+@Entity
 
 public class Customer {
-
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     private String firstName;
     private String lastName;
     private int phoneNumber;
     private int cpr;
 
-    public Customer(int id, String firstName, String lastName, int phoneNumber, int cpr) {
-        this.id = id;
+    public Customer(String firstName, String lastName, int phoneNumber, int cpr) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.cpr = cpr;
+    }
+
+    public Customer() {
+
     }
 
     public int getId() {
