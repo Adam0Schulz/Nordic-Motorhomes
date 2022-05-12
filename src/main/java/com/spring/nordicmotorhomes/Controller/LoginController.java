@@ -34,14 +34,11 @@ public class LoginController {
         return "login/index";
     }
 
-
-
     @Autowired
     EmpServiceImpl empServiceImpl;
 
     @GetMapping("/findall")
     @ResponseBody
-
     public ArrayList<Employee> getAllEmployee() {
         System.out.println("lesss go");
         return empServiceImpl.findAllEmployee();

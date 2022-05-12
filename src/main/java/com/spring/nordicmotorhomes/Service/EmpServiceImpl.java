@@ -36,7 +36,6 @@ public class EmpServiceImpl implements EmpService {
     public void deleteByID(Integer id) {
         employeeRepository.deleteById(id);
     }
-    @Query("TRUNCATE TABLE [employee]")
 
     @Override
     public void deleteAllData() {
