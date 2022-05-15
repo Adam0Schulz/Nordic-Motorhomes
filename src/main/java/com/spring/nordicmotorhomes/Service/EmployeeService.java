@@ -10,6 +10,8 @@ import java.util.ArrayList;
 @Service
 public class EmployeeService {
 
+    private static Employee currentEmp;
+
     @Autowired
     private EmployeeDAO employeeDAO;
 
@@ -26,6 +28,14 @@ public class EmployeeService {
         }
 
         return employee;
+    }
+
+    public static void setCurrentEmp(Employee emp) {
+        currentEmp = emp;
+    }
+
+    public static Employee getCurrentEmp() {
+        return currentEmp;
     }
 
 }

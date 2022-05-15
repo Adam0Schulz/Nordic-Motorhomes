@@ -22,7 +22,7 @@ public class EmployeeDAO {
     private JdbcTemplate template;
 
     public ArrayList<Employee> fetchAllEmployees() {
-        String sql = "select ID, first_name, last_name, phone_number, CPR, title,email, password from nordic_motorhomes.employee";
+        String sql = "select ID, first_name, last_name, phone_number, CPR, title,email, password from nordic_motorhomes.employees";
         RowMapper<Employee> rowMapper = new BeanPropertyRowMapper<>(Employee.class);
         return (ArrayList<Employee>) template.query(sql, rowMapper);
     }

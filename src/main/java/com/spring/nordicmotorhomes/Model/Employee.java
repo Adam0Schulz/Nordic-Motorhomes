@@ -28,6 +28,8 @@ public class Employee {
         this.email = email;
     }
 
+    public Employee() {}
+
 
     //SETTERS AND GETTERS
 

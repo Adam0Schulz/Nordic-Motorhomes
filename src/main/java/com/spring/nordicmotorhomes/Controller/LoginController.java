@@ -15,11 +15,6 @@ public class LoginController {
     @Autowired
     EmployeeService employeeService;
 
-    @GetMapping("/")
-    public String index() {
-        return "redirect:/login";
-    }
-
     @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("emp", "");
@@ -29,8 +24,12 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password, Model model) {
         Employee currentEmp  = employeeService.login(email, password);
-        model.addAttribute("emp", currentEmp);
-        return "login/index";
+        if (currentEmp == null) {
+            model.addAttribute("emp", null);
+            return "login/index";
+        }
+        EmployeeService.setCurrentEmp(currentEmp);
+        return "redirect:/dashboard";
     }
 
 }
