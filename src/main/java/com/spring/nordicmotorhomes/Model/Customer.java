@@ -1,41 +1,61 @@
 package com.spring.nordicmotorhomes.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+
 public class Customer {
 
-    //Attributes
-
-    @Id
     private int id;
     private String firstName;
     private String lastName;
     private int phoneNumber;
-    private String email;
-    private int CPR;
+    private int cpr;
 
-    //CONSTRUCTOR
-
-    public Customer(String first_name, String last_name, int phone_number, String email, int CPR){
-        this.firstName = first_name;
-        this.lastName = last_name;
-        this.phoneNumber = phone_number;
-        this.email = email;
-        this.CPR = CPR;
+    public Customer(int id, String firstName, String lastName, int phoneNumber, int cpr) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.cpr = cpr;
     }
 
-    // SETTERS AND GETTERS
+    public int getId() {
+        return id;
+    }
 
-    public String getFirstName(){ return firstName;}
-    public void setFirstName(String first_name){ this.firstName = first_name;}
-    public String getLastName(){ return lastName;}
-    public void setLastName(String last_name){ this.lastName = last_name;}
-    public int getPhoneNumber(){ return phoneNumber;}
-    public void setPhoneNumber(int phone_number){ this.phoneNumber = phone_number;}
-    public String getEmail(){ return email;}
-    public void setEmail(String email){ this.email = email;}
-    public int getCPR(){ return CPR;}
-    public void setCPR(int CPR){ this.CPR = CPR;}
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public int getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(int cpr) {
+        this.cpr = cpr;
+    }
 }

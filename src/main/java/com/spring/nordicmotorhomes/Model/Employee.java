@@ -3,12 +3,11 @@ package com.spring.nordicmotorhomes.Model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+
 public class Employee {
 
     //ATTRIBUTES
 
-    @Id
     private int id;
     private String firstName;
     private String lastName;
@@ -28,6 +27,8 @@ public class Employee {
         this.title = title;
         this.email = email;
     }
+
+    public Employee() {}
 
 
     //SETTERS AND GETTERS
