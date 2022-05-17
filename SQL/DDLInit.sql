@@ -43,14 +43,14 @@ CREATE TABLE IF NOT EXISTS employees (
 
 CREATE TABLE IF NOT EXISTS bookings (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    customer_ID int(10),
+    customer_ID INT,
     start_date date,
     pick_up_time time,
     end_date date,
-    motorhome_ID int(10),
-    employee_ID int(10),
-    pick_up_loc varchar(255),
-    drop_off_loc varchar(255),
+    motorhome_ID INT,
+    employee_ID INT,
+    pick_up_location varchar(255),
+    drop_off_location varchar(255),
     total_price float(10),
     fuel_level float(10),
     FOREIGN KEY (customer_ID) REFERENCES customers(ID),
@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS bookings (
 
 CREATE TABLE IF NOT EXISTS booking_extras (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    booking_ID int(10) ,
-    extra_ID int(10),
+    booking_ID INT,
+    extra_ID INT,
     FOREIGN KEY (booking_ID) REFERENCES bookings(ID),
     FOREIGN KEY (extra_ID) REFERENCES extras(ID)
 

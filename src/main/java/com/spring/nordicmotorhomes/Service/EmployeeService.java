@@ -1,7 +1,8 @@
 package com.spring.nordicmotorhomes.Service;
 
-import com.spring.nordicmotorhomes.DAO.EmployeeDAO;
-import com.spring.nordicmotorhomes.Model.Employee;
+
+import com.spring.nordicmotorhomes.Entity.Employee;
+import com.spring.nordicmotorhomes.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +14,12 @@ public class EmployeeService {
     private static Employee currentEmp;
 
     @Autowired
-    private EmployeeDAO employeeDAO;
+    private EmployeeRepository employeeRepository;
 
     public Employee login(String username, String password) {
 
         Employee employee = null;
-        ArrayList<Employee> employees = (ArrayList<Employee>) employeeDAO.fetchAllEmployees();
+        ArrayList<Employee> employees = (ArrayList<Employee>) employeeRepository.findAll();
 
         for (Employee emp : employees) {
             if(emp.getEmail().equals(username) || emp.getPassword().equals(password)) {

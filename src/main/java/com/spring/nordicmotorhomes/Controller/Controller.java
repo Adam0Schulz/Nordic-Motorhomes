@@ -1,6 +1,5 @@
 package com.spring.nordicmotorhomes.Controller;
 
-import com.spring.nordicmotorhomes.Model.Employee;
 import com.spring.nordicmotorhomes.Service.EmployeeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,11 +22,5 @@ public class Controller {
             return "";
         }
         return "";
-    }
-
-    @GetMapping("/error")
-    @ResponseBody()
-    public String error() {
-        return "Oops something went wrong :(";
     }
 }
