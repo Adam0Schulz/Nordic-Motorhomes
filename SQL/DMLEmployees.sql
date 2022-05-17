@@ -10,7 +10,7 @@ INSERT INTO nordic_motorhomes.employees
             'simonakardel@gmail.com', '1111');
 
 INSERT INTO nordic_motorhomes.employees
-    VALUES (ID, 'Adam', 'Schulz', 42353636, 12234442, 'Owner',
+    VALUES (ID, 'Adam', 'Schulz', 42353636, 12234442, 'Sales Assistant1',
         'adamschulz@gmail.com', '1112');
 
 INSERT INTO nordic_motorhomes.employees
@@ -18,8 +18,8 @@ VALUES(ID, 'Wanesa', 'Wintmiller', 42555656, 12525625, 'Bookkeeper',
        'wanesawintmiller@gmail.com', '1113');
 
 INSERT INTO nordic_motorhomes.employees
-VALUES(ID, 'Carl', 'Lund', 42555656, 12525625, 'Sales Assistant1',
-       'carllund@gmail.com', '1116');
+VALUES(ID, 'Douglas', 'Beaver', 42555656, 12525625, 'Owner',
+       'douglasbeaver@gmail.com', '1116');
 
 INSERT INTO nordic_motorhomes.employees
 VALUES(ID, 'Samantha', 'Hansen', 42555656, 12525625, 'Sales Assistant2',

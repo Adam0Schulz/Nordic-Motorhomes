@@ -2,6 +2,8 @@ USE nordic_motorhomes;
 
 #ALTER TABLE customers DROP email;
 #ALTER TABLE customers ADD email varchar(400) AFTER phone_number;
+#address instead of cpr in customer
+
 
 INSERT INTO nordic_motorhomes.customers
     (first_name, last_name, phone_number,email, CPR)
