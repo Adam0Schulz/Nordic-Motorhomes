@@ -2,9 +2,10 @@ package com.spring.nordicmotorhomes.Model;
 
 import javax.persistence.*;
 
-
+@Entity
 public class Customer {
 
+    @Id
     private int id;
     private String firstName;
     private String lastName;
@@ -17,6 +18,10 @@ public class Customer {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.cpr = cpr;
+    }
+
+    public Customer() {
+
     }
 
     public int getId() {
