@@ -1,0 +1,29 @@
+package com.spring.nordicmotorhomes.Entity;
+
+import lombok.*;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class Customer {
+    @Id
+    @SequenceGenerator(name = "customer_sequence",
+            sequenceName = "customer_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "customer_sequence"
+    )
+    private Long id;
+    private String firstName;
+    private String lastName;
+    private int phoneNumber;
+    private int cpr;
+}
+
