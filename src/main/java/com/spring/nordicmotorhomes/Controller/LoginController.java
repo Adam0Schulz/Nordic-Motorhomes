@@ -1,6 +1,6 @@
 package com.spring.nordicmotorhomes.Controller;
 
-import com.spring.nordicmotorhomes.Model.Employee;
+import com.spring.nordicmotorhomes.Entity.Employee;
 import com.spring.nordicmotorhomes.Service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
