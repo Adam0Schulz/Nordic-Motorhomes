@@ -10,7 +10,6 @@ import java.sql.Time;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -56,7 +55,6 @@ public class BookingService {
 
         return true;
     }
-    //Note: calculate total in here not just pass it in like parameter
 
     // Create booking - creates and saves booking
     public void createBooking( Set<Extra> extras, Customer customer, Motorhome motorhome, Employee employee, Date start, Date end, String pickUp, Time pickUpTime, String dropOff, double total) {
@@ -83,6 +81,7 @@ public class BookingService {
     }
     //Note: we could easily overload the function above to also sort results
 
+    // Checks if booking is containing a date
     public boolean isBookingContainingDate(Booking booking, LocalDate date) {
         List<Booking> bookingsContainingDate = getBookingByDate(date);
         if(bookingsContainingDate.contains(booking)) {
@@ -122,6 +121,19 @@ public class BookingService {
     public List<Booking> getBookingbyEndDate(Date date) {
         List<Booking> bookings = bookingRepository.findByEndDate(date);
         return bookings;
+    }
+
+    // Get previous bookings - returns bookings that ended before specified date
+    public List<Booking> getPreviousBookings(LocalDate date) {
+        List<Booking> previousBookings = new ArrayList<Booking>();
+        List<Booking> bookings = getAllBookings();
+        for(Booking booking : bookings) {
+            if(booking.getEndDate().toLocalDate().isBefore(date)) {
+                previousBookings.add(booking);
+            }
+        }
+
+        return previousBookings;
     }
 
     // Get booking by motorhome id
