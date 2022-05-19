@@ -5,15 +5,16 @@ import com.spring.nordicmotorhomes.Entity.*;
 import com.spring.nordicmotorhomes.repository.*;
 
 import java.sql.Time;
+
+import org.apache.tomcat.jni.Local;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.*;
 
 @Service
 public class SAService {
@@ -30,7 +31,7 @@ public class SAService {
     BookingRepository bookingRepository;
 
     //Tested
-    // Creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
+    // Create booking - creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
     public boolean createBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID, double total) {
 
         Motorhome motorhome = motorhomeRepository.findById((long) motorhomeID).orElse(null);
@@ -85,11 +86,44 @@ public class SAService {
     }
     //Note: calculate total in here not just pass it in like parameter
 
-    // return all the bookings
+    // Return all the bookings
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
     //Note: we could easily overload the function above to also sort results
+
+    // Booking by date - returns a list of bookings that contain the given date
+    public List<Booking> getBookingByDate(LocalDate date) {
+
+        List<Booking> bookings = new ArrayList<Booking>();
+        List<Booking> allBookings = bookingRepository.findAll();
+
+        for(Booking booking : allBookings) {
+            LocalDate startDate = booking.getStartDate().toLocalDate();
+            LocalDate endDate = booking.getEndDate().toLocalDate();
+
+            // Condition check if the date is between start and end date of the booking
+            if ((startDate.isBefore(date) || startDate.isEqual(date)) && (endDate.isAfter(date) || endDate.isEqual(date))) {
+                bookings.add(booking);
+            }
+
+        }
+
+
+        return bookings;
+    }
+
+    // Booking by start date
+    public List<Booking> getBookingbyStartDate(Date date) {
+        List<Booking> bookings = bookingRepository.findByStartDate(date);
+        return bookings;
+    }
+
+    // Booking by end date
+    public List<Booking> getBookingbyEndDate(Date date) {
+        List<Booking> bookings = bookingRepository.findByEndDate(date);
+        return bookings;
+    }
 
 
 
