@@ -29,4 +29,12 @@ public class ExtraService {
         }
         return extras;
     }
+
+    public double getExtrasTotalPrice(Set<Extra> extras) {
+        double total = 0;
+        for (Extra extra : extras) {
+            total += extra.getPrice();
+        }
+        return total;
+    }
 }

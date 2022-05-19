@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -34,21 +35,23 @@ public class BookingService {
 
     //Tested
     // Create booking - creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
-    public boolean addBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID, double total) {
+    public boolean addBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID) {
 
         Motorhome motorhome = motorhomeService.getById((long) motorhomeID);
         Employee employee = employeeService.getById((long) empID);
         Set<Extra> extras = extraService.getExtrasByIDs(extraIDs);
 
         // Error handling
-        if (motorhome == null || employee == null || extras == null || !(motorhomeService.isAvailableDuring(motorhome, start.toLocalDate(), end.toLocalDate()))) {
-            return false;
-        }
+        if (motorhome == null
+                || employee == null
+                || extras == null
+                || !(motorhomeService.isAvailableDuring(motorhome, start.toLocalDate(), end.toLocalDate()))
+        ) { return false; }
 
-        // Creation of customer
+        double total = getTotalPrice(motorhome, start.toLocalDate(), end.toLocalDate(), extras);
+
+        // Creating Customer and Booking
         Customer c = customerService.getOrCreate(customerCpr,customerFirst,customerLast,customerPhone);
-
-        // Creation of the new booking
         createBooking(extras, c, motorhome, employee, start, end, pickUp, pickUpTime, dropOff, total);
 
         return true;
@@ -121,8 +124,15 @@ public class BookingService {
         return bookings;
     }
 
+    // Get booking by motorhome id
     public List<Booking> getBookingByMotorhomeID(long motorhomeID) {
         return bookingRepository.findByMotorhomeID(motorhomeID);
+    }
+
+    // Get total price - calculates and returns total price of the booking
+    public double getTotalPrice(Motorhome motorhome, LocalDate start, LocalDate end, Set<Extra> extras) {
+        int days = (int) ChronoUnit.DAYS.between(start, end);
+        return (motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras);
     }
 
 }
