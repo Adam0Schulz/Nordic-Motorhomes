@@ -29,6 +29,7 @@ public class SAService {
     @Autowired
     BookingRepository bookingRepository;
 
+    //Tested
     // Creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
     public boolean createBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID, double total) {
 
@@ -37,7 +38,7 @@ public class SAService {
         Set<Extra> extras = new HashSet<>();
 
         // Error handling
-        if(motorhome == null || employee == null || motorhome.isAvailability()) {
+        if(motorhome == null || employee == null || !(motorhome.isAvailability())) {
             return false;
         }
         for (int id : extraIDs) {
@@ -82,12 +83,14 @@ public class SAService {
 
         return true;
     }
+    //Note: calculate total in here not just pass it in like parameter
 
     // return all the bookings
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
     //Note: we could easily overload the function above to also sort results
-    //Note: calculate total in here not just pass it in like parameter
-    //Note: not tested yet :(
+
+
+
 }

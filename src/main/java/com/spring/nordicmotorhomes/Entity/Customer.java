@@ -1,5 +1,6 @@
 package com.spring.nordicmotorhomes.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,6 +30,7 @@ public class Customer {
     private int phoneNumber;
     private int CPR;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private Set<Booking> bookings = new HashSet<>();
 }

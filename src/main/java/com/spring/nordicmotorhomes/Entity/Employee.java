@@ -1,5 +1,6 @@
 package com.spring.nordicmotorhomes.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
 import java.util.HashSet;
@@ -28,6 +29,7 @@ public class Employee {
     private long ID;
 
     //  Foreign key
+    @JsonIgnore
     @OneToMany(mappedBy = "employee")
     private Set<Booking> bookings = new HashSet<>();
 
