@@ -1,73 +1,65 @@
 package com.spring.nordicmotorhomes.Service;
 
-
 import com.spring.nordicmotorhomes.Entity.*;
-import com.spring.nordicmotorhomes.repository.*;
-
-import java.sql.Time;
-
-import org.apache.tomcat.jni.Local;
-import org.junit.Test;
+import com.spring.nordicmotorhomes.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.time.LocalDate;
-import java.time.Period;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
-public class SAService {
+public class BookingService {
 
     @Autowired
-    CustomerRepository customerRepository;
+    private BookingRepository bookingRepository;
+
     @Autowired
-    MotorhomeRepository motorhomeRepository;
+    private MotorhomeService motorhomeService;
+
     @Autowired
-    EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
+
     @Autowired
-    ExtraRepository extraRepository;
+    private ExtraService extraService;
+
     @Autowired
-    BookingRepository bookingRepository;
+    private CustomerService customerService;
+
 
     //Tested
     // Create booking - creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
-    public boolean createBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID, double total) {
+    public boolean addBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID, double total) {
 
-        Motorhome motorhome = motorhomeRepository.findById((long) motorhomeID).orElse(null);
-        Employee employee = employeeRepository.findById((long) empID).orElse(null);
-        Set<Extra> extras = new HashSet<>();
+        Motorhome motorhome = motorhomeService.getById((long) motorhomeID);
+        Employee employee = employeeService.getById((long) empID);
+        Set<Extra> extras = extraService.getExtrasByIDs(extraIDs);
 
         // Error handling
-        if (motorhome == null || employee == null || !(motorhome.isAvailability())) {
+        if (motorhome == null || employee == null || extras == null || !(motorhomeService.isAvailableDuring(motorhome, start.toLocalDate(), end.toLocalDate()))) {
             return false;
         }
-        for (int id : extraIDs) {
-            Extra extra = extraRepository.findById((long) id).orElse(null);
-            if (extra == null) {
-                return false;
-            }
-            extras.add(extra);
-        }
-
-        // Sets the motorhome as not available
-        motorhome.setAvailability(false);
 
         // Creation of customer
-        Customer c = customerRepository.findByCPR(customerCpr);
-        if (c == null) {
-            c = Customer.builder()
-                    .CPR(customerCpr)
-                    .firstName(customerFirst)
-                    .lastName(customerLast)
-                    .phoneNumber(customerPhone)
-                    .build();
-        }
+        Customer c = customerService.getOrCreate(customerCpr,customerFirst,customerLast,customerPhone);
 
         // Creation of the new booking
+        createBooking(extras, c, motorhome, employee, start, end, pickUp, pickUpTime, dropOff, total);
+
+        return true;
+    }
+    //Note: calculate total in here not just pass it in like parameter
+
+    // Create booking - creates and saves booking
+    public void createBooking( Set<Extra> extras, Customer customer, Motorhome motorhome, Employee employee, Date start, Date end, String pickUp, Time pickUpTime, String dropOff, double total) {
         Booking newBooking = Booking.builder()
                 .extras(extras)
-                .customer(c)
+                .customer(customer)
                 .motorhome(motorhome)
                 .employee(employee)
                 .startDate(start)
@@ -80,17 +72,21 @@ public class SAService {
 
         // saving data to database
         bookingRepository.save(newBooking);
-        customerRepository.save(c);
-
-        return true;
     }
-    //Note: calculate total in here not just pass it in like parameter
 
     // Get all the bookings
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
     //Note: we could easily overload the function above to also sort results
+
+    public boolean isBookingContainingDate(Booking booking, LocalDate date) {
+        List<Booking> bookingsContainingDate = getBookingByDate(date);
+        if(bookingsContainingDate.contains(booking)) {
+            return true;
+        }
+        return false;
+    }
 
     // Get Booking by date - returns a list of bookings that contain the given date
     public List<Booking> getBookingByDate(LocalDate date) {
@@ -125,7 +121,8 @@ public class SAService {
         return bookings;
     }
 
-    // Get all motorhomes
-    public List<Motorhome> getAllMotorhomes() { return motorhomeRepository.findAll(); }
+    public List<Booking> getBookingByMotorhomeID(long motorhomeID) {
+        return bookingRepository.findByMotorhomeID(motorhomeID);
+    }
 
 }

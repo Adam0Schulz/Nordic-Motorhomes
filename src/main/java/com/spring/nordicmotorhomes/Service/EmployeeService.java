@@ -16,6 +16,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
+
     public Employee login(String username, String password) {
 
         Employee employee = null;
@@ -37,6 +38,10 @@ public class EmployeeService {
 
     public static Employee getCurrentEmp() {
         return currentEmp;
+    }
+
+    public Employee getById(long id) {
+        return employeeRepository.findById((long) id).orElse(null);
     }
 
 }
