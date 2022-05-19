@@ -39,12 +39,12 @@ public class SAService {
         Set<Extra> extras = new HashSet<>();
 
         // Error handling
-        if(motorhome == null || employee == null || !(motorhome.isAvailability())) {
+        if (motorhome == null || employee == null || !(motorhome.isAvailability())) {
             return false;
         }
         for (int id : extraIDs) {
             Extra extra = extraRepository.findById((long) id).orElse(null);
-            if(extra == null) {
+            if (extra == null) {
                 return false;
             }
             extras.add(extra);
@@ -55,7 +55,7 @@ public class SAService {
 
         // Creation of customer
         Customer c = customerRepository.findByCPR(customerCpr);
-        if(c == null) {
+        if (c == null) {
             c = Customer.builder()
                     .CPR(customerCpr)
                     .firstName(customerFirst)
@@ -86,19 +86,19 @@ public class SAService {
     }
     //Note: calculate total in here not just pass it in like parameter
 
-    // Return all the bookings
+    // Get all the bookings
     public List<Booking> getAllBookings() {
         return bookingRepository.findAll();
     }
     //Note: we could easily overload the function above to also sort results
 
-    // Booking by date - returns a list of bookings that contain the given date
+    // Get Booking by date - returns a list of bookings that contain the given date
     public List<Booking> getBookingByDate(LocalDate date) {
 
         List<Booking> bookings = new ArrayList<Booking>();
         List<Booking> allBookings = bookingRepository.findAll();
 
-        for(Booking booking : allBookings) {
+        for (Booking booking : allBookings) {
             LocalDate startDate = booking.getStartDate().toLocalDate();
             LocalDate endDate = booking.getEndDate().toLocalDate();
 
@@ -113,7 +113,7 @@ public class SAService {
         return bookings;
     }
 
-    // Booking by start date
+    // Get Booking by start date
     public List<Booking> getBookingbyStartDate(Date date) {
         List<Booking> bookings = bookingRepository.findByStartDate(date);
         return bookings;
@@ -125,6 +125,7 @@ public class SAService {
         return bookings;
     }
 
-
+    // Get all motorhomes
+    public List<Motorhome> getAllMotorhomes() { return motorhomeRepository.findAll(); }
 
 }

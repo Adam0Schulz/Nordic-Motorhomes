@@ -18,6 +18,9 @@ public class SAController {
 
     @GetMapping("/dashboard/sa")
     public String index () {
+        if(EmployeeService.getCurrentEmp() == null) {
+            return "redirect:/login";
+        }
         if(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant")) {
             return "dashboard/sa/index";
         }
