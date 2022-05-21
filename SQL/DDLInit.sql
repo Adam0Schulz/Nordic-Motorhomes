@@ -9,10 +9,11 @@ CREATE TABLE IF NOT EXISTS motorhomes (
     brand varchar(255),
     model varchar(255),
     capacity int(10),
-    availability BOOLEAN,
     reg_number varchar(255),
     base_price float(10),
-    mileage int(10)
+    mileage int(10),
+    category varchar(255),
+    image varchar(500)
 );
 
 CREATE TABLE IF NOT EXISTS extras (
@@ -27,7 +28,7 @@ CREATE TABLE IF NOT EXISTS customers (
     last_name varchar(255),
     phone_number int(12),
     email varchar(400),
-    CPR int(10)
+    driving_licence_number varchar(12)
 );
 
 CREATE TABLE IF NOT EXISTS employees (
@@ -66,4 +67,64 @@ CREATE TABLE IF NOT EXISTS booking_extras (
     FOREIGN KEY (extra_ID) REFERENCES extras(ID)
 
 );
+
+CREATE TABLE IF NOT EXISTS seasons (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    name varchar(10),
+    start_date DATE,
+    end_date DATE,
+    percentage float
+);
+
+CREATE TABLE IF NOT EXISTS cancellation_fees (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    days_before INT,
+    percentage INT(3)
+);
+
+CREATE TABLE IF NOT EXISTS motorhomes_to_check (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    motorhome_ID INT,
+    FOREIGN KEY (motorhome_ID) REFERENCES motorhomes(ID)
+);
+
+CREATE TABLE IF NOT EXISTS motorhomes_to_clean (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    motorhome_ID INT,
+    FOREIGN KEY (motorhome_ID) REFERENCES motorhomes(ID)
+);
+
+CREATE TABLE IF NOT EXISTS past_bookings (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    booking_ID INT,
+    FOREIGN KEY (booking_ID) REFERENCES bookings(ID)
+);
+
+CREATE TABLE IF NOT EXISTS active_bookings (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    booking_ID INT,
+    FOREIGN KEY (booking_ID) REFERENCES bookings(ID)
+);
+
+CREATE TABLE IF NOT EXISTS future_bookings (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    booking_ID INT,
+    FOREIGN KEY (booking_ID) REFERENCES bookings(ID)
+);
+
+CREATE TABLE IF NOT EXISTS cancelled_bookings (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    booking_ID INT,
+    fee_ID INT,
+    FOREIGN KEY (fee_ID) REFERENCES cancellation_fees(ID),
+    FOREIGN KEY (booking_ID) REFERENCES bookings(ID)
+);
+
+CREATE TABLE IF NOT EXISTS system_variables (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    value INT
+);
+
 

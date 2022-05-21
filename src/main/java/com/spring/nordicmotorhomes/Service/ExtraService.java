@@ -1,6 +1,7 @@
 package com.spring.nordicmotorhomes.Service;
 
 import com.spring.nordicmotorhomes.Entity.Extra;
+import com.spring.nordicmotorhomes.Entity.Motorhome;
 import com.spring.nordicmotorhomes.repository.ExtraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,14 @@ public class ExtraService {
             total += extra.getPrice();
         }
         return total;
+    }
+
+    //Test method - create extra
+    public void createExtra(double price, String type) {
+        Extra newExtra = Extra.builder()
+                .price(price)
+                .type(type)
+                .build();
+        extraRepository.save(newExtra);
     }
 }

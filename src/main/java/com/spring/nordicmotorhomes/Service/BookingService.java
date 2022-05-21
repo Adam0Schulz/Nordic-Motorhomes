@@ -31,14 +31,22 @@ public class BookingService {
     @Autowired
     private CustomerService customerService;
 
+    @Autowired
+    private SeasonService seasonService;
 
-    //Tested
-    // Create booking - creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
+    @Autowired
+    private SystemVariableService systemVariableService;
+
+
+
+    // Add booking - creates customer if they don't exist and creates booking (return true/false depending on if everything's alright)
     public boolean addBooking(int customerCpr, String customerFirst, String customerLast, int customerPhone, Date start, Date end, int motorhomeID, Set<Integer> extraIDs, String pickUp, String dropOff, Time pickUpTime, int empID) {
 
+        // Set up
         Motorhome motorhome = motorhomeService.getById((long) motorhomeID);
         Employee employee = employeeService.getById((long) empID);
         Set<Extra> extras = extraService.getExtrasByIDs(extraIDs);
+
 
         // Error handling
         if (motorhome == null
@@ -47,6 +55,7 @@ public class BookingService {
                 || !(motorhomeService.isAvailableDuring(motorhome, start.toLocalDate(), end.toLocalDate()))
         ) { return false; }
 
+        // Calculating the total price of the booking
         double total = getTotalPrice(motorhome, start.toLocalDate(), end.toLocalDate(), extras);
 
         // Creating Customer and Booking
@@ -90,6 +99,15 @@ public class BookingService {
         return false;
     }
 
+    // Checks if booking is containing a date (including a buffer)
+    public boolean isBookingContainingDate(Booking booking, LocalDate date, int bufferDays) {
+        List<Booking> bookingsContainingDate = getBookingByDate(date, bufferDays);
+        if(bookingsContainingDate.contains(booking)) {
+            return true;
+        }
+        return false;
+    }
+
     // Get Booking by date - returns a list of bookings that contain the given date
     public List<Booking> getBookingByDate(LocalDate date) {
 
@@ -111,14 +129,35 @@ public class BookingService {
         return bookings;
     }
 
+    // Get Booking by date - returns a list of bookings that contain the given date (adds a buffer on the end date of the booking)
+    public List<Booking> getBookingByDate(LocalDate date, int bufferDays) {
+
+        List<Booking> bookings = new ArrayList<Booking>();
+        List<Booking> allBookings = bookingRepository.findAll();
+
+        for (Booking booking : allBookings) {
+            LocalDate startDate = booking.getStartDate().toLocalDate();
+            LocalDate endDate = booking.getEndDate().toLocalDate().plus(bufferDays, ChronoUnit.DAYS);
+
+            // Condition check if the date is between start and end date of the booking
+            if ((startDate.isBefore(date) || startDate.isEqual(date)) && (endDate.isAfter(date) || endDate.isEqual(date))) {
+                bookings.add(booking);
+            }
+
+        }
+
+
+        return bookings;
+    }
+
     // Get Booking by start date
-    public List<Booking> getBookingbyStartDate(Date date) {
+    public List<Booking> getBookingByStartDate(Date date) {
         List<Booking> bookings = bookingRepository.findByStartDate(date);
         return bookings;
     }
 
     // Booking by end date
-    public List<Booking> getBookingbyEndDate(Date date) {
+    public List<Booking> getBookingByEndDate(Date date) {
         List<Booking> bookings = bookingRepository.findByEndDate(date);
         return bookings;
     }
@@ -144,7 +183,49 @@ public class BookingService {
     // Get total price - calculates and returns total price of the booking
     public double getTotalPrice(Motorhome motorhome, LocalDate start, LocalDate end, Set<Extra> extras) {
         int days = (int) ChronoUnit.DAYS.between(start, end);
-        return (motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras);
+        double seasonPercentage = seasonService.getSeason(start).getPercentage();
+        return ((motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras)) * seasonPercentage;
     }
+
+    // Picked up - adds given booking to active bookings
+    public boolean pickedUp(int bookingID) {
+
+        Booking booking = bookingRepository.findById((long) bookingID).orElse(null);
+        if(booking == null) {
+            return false;
+        }
+        ActiveBooking activeBooking = ActiveBooking.builder()
+                .booking(booking)
+                .build();
+        booking.setActiveBooking(activeBooking);
+        bookingRepository.save(booking);
+
+        return true;
+    }
+
+    // Dropped off - moves motorhome attached to given booking to motorhomes to be checked
+    public boolean droppedOff(long bookingID) {
+        Booking booking = bookingRepository.findById(bookingID).orElse(null);
+        if(booking == null) {
+            return false;
+        }
+        motorhomeService.addToCheck(booking.getMotorhome().getID());
+        return true;
+    }
+
+    // Dropped off - moves motorhome attached to given booking to motorhomes to be checked (adds additional kilometers fee to the total of the booking)
+    public boolean droppedOff(long bookingID, int additionalKilometers) {
+        Booking booking = bookingRepository.findById(bookingID).orElse(null);
+        if(booking == null) {
+            return false;
+        }
+        motorhomeService.addToCheck(booking.getMotorhome().getID());
+        double total = booking.getTotalPrice();
+        total += additionalKilometers * systemVariableService.getAdditionalKilometerFee();
+        booking.setTotalPrice(total);
+        return true;
+    }
+
+    // calculate the additional fee for drop off
 
 }

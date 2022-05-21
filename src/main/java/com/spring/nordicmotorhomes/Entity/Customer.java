@@ -28,7 +28,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private int phoneNumber;
-    private int CPR;
+    private int drivingLicenceNumber;
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer")
