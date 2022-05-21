@@ -11,15 +11,15 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer getByCPR(int id) {
-        return customerRepository.findByCPR(id).orElse(null);
+    public Customer getByDLN(int num) {
+        return customerRepository.findByDrivingLicenceNumber(num).orElse(null);
     }
 
-    public Customer getOrCreate(int CPR,String first, String last, int phone) {
-        Customer customer = getByCPR(CPR);
+    public Customer getOrCreate(int dln,String first, String last, int phone) {
+        Customer customer = getByDLN(dln);
         if (customer == null) {
             customer = Customer.builder()
-                    .CPR(CPR)
+                    .drivingLicenceNumber(dln)
                     .firstName(first)
                     .lastName(last)
                     .phoneNumber(phone)

@@ -2,15 +2,16 @@ package com.spring.nordicmotorhomes.Service;
 
 import com.spring.nordicmotorhomes.Entity.Booking;
 import com.spring.nordicmotorhomes.Entity.Motorhome;
+import com.spring.nordicmotorhomes.Entity.MotorhomeToCheck;
+import com.spring.nordicmotorhomes.Entity.MotorhomeToClean;
 import com.spring.nordicmotorhomes.repository.MotorhomeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Array;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -21,6 +22,11 @@ public class MotorhomeService {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private SystemVariableService systemVariableService;
+
+
 
     // Get motorhome by id
     public Motorhome getById(long id) {
@@ -42,15 +48,16 @@ public class MotorhomeService {
     // Get all available motorhomes on specific date
     public List<Motorhome> getAllAvailableMotorhomesOn(LocalDate date) {
 
-        List<Motorhome> availableMotorhomes = new ArrayList<Motorhome>();
+        List<Motorhome> availableMotorhomes = new ArrayList<>();
         List<Motorhome> motorhomes = getAllMotorhomes();
+        int bufferDays = (int) systemVariableService.getMotorhomeAvailabilityBuffer();
         boolean available;
 
         for (Motorhome motorhome : motorhomes) {
             available = true;
             List<Booking> bookings = bookingService.getBookingByMotorhomeID(motorhome.getID());
             for (Booking booking : bookings) {
-                if(bookingService.isBookingContainingDate(booking,date)) {
+                if(bookingService.isBookingContainingDate(booking,date, bufferDays)) {
                     available = false;
                 }
             }
@@ -91,6 +98,51 @@ public class MotorhomeService {
             return true;
         }
         return false;
+    }
+
+    // Add to check
+    public boolean addToCheck(long motorhomeID) {
+        Motorhome motorhome = motorhomeRepository.findById(motorhomeID).orElse(null);
+        if(motorhome == null || motorhome.getMotorhomeToClean() != null) {
+            return false;
+        }
+
+        MotorhomeToCheck toCheck = MotorhomeToCheck.builder()
+                .motorhome(motorhome)
+                .build();
+        motorhome.setMotorhomeToCheck(toCheck);
+        motorhomeRepository.save(motorhome);
+
+        return true;
+    }
+
+    public boolean addToClean(long motorhomeID) {
+        Motorhome motorhome = motorhomeRepository.findById(motorhomeID).orElse(null);
+        if(motorhome == null || motorhome.getMotorhomeToCheck() == null) {
+            return false;
+        }
+
+        MotorhomeToClean toClean = MotorhomeToClean.builder()
+                .motorhome(motorhome)
+                .build();
+        motorhome.setMotorhomeToCheck(null);
+        motorhome.setMotorhomeToClean(toClean);
+        motorhomeRepository.save(motorhome);
+
+        return true;
+    }
+
+    // Test method - Create a motorhome
+    public void createMotorhome(double basePrice, String brand, int capacity, int mileage, String model, String regNum) {
+        Motorhome newMotorhome = Motorhome.builder()
+                .basePrice(basePrice)
+                .brand(brand)
+                .capacity(capacity)
+                .mileage(mileage)
+                .model(model)
+                .regNumber(regNum)
+                .build();
+        motorhomeRepository.save(newMotorhome);
     }
 
 }

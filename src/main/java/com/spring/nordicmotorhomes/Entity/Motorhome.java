@@ -33,14 +33,20 @@ public class Motorhome {
     @OneToMany(mappedBy = "motorhome")
     private Set<Booking> bookings = new HashSet<>();
 
+    @OneToOne(mappedBy = "motorhome")
+    private MotorhomeToCheck motorhomeToCheck;
+
+    @OneToOne(mappedBy = "motorhome")
+    private MotorhomeToClean motorhomeToClean;
+
     //  Other Attributes
     private String brand;
     private String model;
     private int capacity;
-    private boolean availability;
     private String regNumber;
     private double basePrice;
     private int mileage;
-
+    private String vehicleCategory;
+    private String image;
 
 }
