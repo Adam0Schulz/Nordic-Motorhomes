@@ -3,6 +3,7 @@ package com.spring.nordicmotorhomes.Entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -25,8 +26,15 @@ public class CancellationFee {
     )
     private int ID;
 
+    @OneToMany(mappedBy = "fee")
+    private Set<CancelledBooking> cancelledBookings;
+
     // Other Attributes
     private String name;
-    private int days_before;
+
+    //in case of cancellation on the rental day the max will be 1 and min -1
+    private int maxDaysBefore;
+    private int minDaysBefore;
     private int percentage;
+    private int minimum;
 }

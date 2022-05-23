@@ -10,7 +10,6 @@ import java.util.Set;
 
 @Entity
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -45,12 +44,12 @@ public class Booking {
     private Customer customer;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "motorhomeID", referencedColumnName = "ID")
     private Motorhome motorhome;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "employeeID", referencedColumnName = "ID")
     private Employee employee;
 
@@ -62,6 +61,9 @@ public class Booking {
 
     @OneToOne(mappedBy = "booking")
     private PastBooking pastBooking;
+
+    @OneToOne(mappedBy = "booking")
+    private CancelledBooking cancelledBooking;
 
 
     //  Other Attributes
@@ -77,5 +79,9 @@ public class Booking {
 
     public void addExtra(Extra extra) {
         extras.add(extra);
+    }
+
+    public String toString() {
+        return getID() + getCustomer().toString() + getMotorhome().toString() + getTotalPrice();
     }
 }

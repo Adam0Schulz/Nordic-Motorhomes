@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "cancelled_bookings") // Naming the database table
@@ -23,4 +24,12 @@ public class CancelledBooking {
             generator = "cancelledBooking_sequence"
     )
     private int ID;
+
+    @OneToOne
+    @JoinColumn(name = "bookingID", referencedColumnName = "ID")
+    private Booking booking;
+
+    @ManyToOne
+    @JoinColumn(name = "feeID", referencedColumnName = "ID")
+    private CancellationFee fee;
 }

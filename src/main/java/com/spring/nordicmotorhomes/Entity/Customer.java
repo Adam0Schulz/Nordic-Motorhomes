@@ -10,7 +10,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -33,5 +32,9 @@ public class Customer {
     @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private Set<Booking> bookings = new HashSet<>();
+
+    public String toString() {
+        return getFirstName() + getLastName() + getDrivingLicenceNumber() + getPhoneNumber();
+    }
 }
 

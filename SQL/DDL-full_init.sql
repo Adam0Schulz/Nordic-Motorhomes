@@ -1,6 +1,5 @@
-
+DROP DATABASE IF EXISTS Nordic_Motorhomes;
 CREATE DATABASE IF NOT EXISTS Nordic_Motorhomes;
-/*DROP DATABASE Nordic_Motorhomes;*/
 
 USE Nordic_Motorhomes;
 
@@ -79,8 +78,10 @@ CREATE TABLE IF NOT EXISTS seasons (
 CREATE TABLE IF NOT EXISTS cancellation_fees (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(255),
-    days_before INT,
-    percentage INT(3)
+    max_days_before INT,
+    min_days_before INT,
+    percentage double,
+    minimum double
 );
 
 CREATE TABLE IF NOT EXISTS motorhomes_to_check (
