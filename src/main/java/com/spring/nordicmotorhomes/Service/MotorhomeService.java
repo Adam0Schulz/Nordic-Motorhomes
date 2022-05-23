@@ -29,7 +29,7 @@ public class MotorhomeService {
 
 
     // Get motorhome by id
-    public Motorhome getById(long id) {
+    public Motorhome getMotorhomeById(long id) {
         return motorhomeRepository.findById(id).orElse(null);
     }
 
@@ -100,7 +100,7 @@ public class MotorhomeService {
         return false;
     }
 
-    // Add to check
+    // Add to check - sets the motorhome to be checked
     public boolean addToCheck(long motorhomeID) {
         Motorhome motorhome = motorhomeRepository.findById(motorhomeID).orElse(null);
         if(motorhome == null || motorhome.getMotorhomeToClean() != null) {
@@ -116,6 +116,7 @@ public class MotorhomeService {
         return true;
     }
 
+    // Add to clean - sets the motorhome to be clean and unsets it to be checked
     public boolean addToClean(long motorhomeID) {
         Motorhome motorhome = motorhomeRepository.findById(motorhomeID).orElse(null);
         if(motorhome == null || motorhome.getMotorhomeToCheck() == null) {
@@ -132,8 +133,8 @@ public class MotorhomeService {
         return true;
     }
 
-    // Test method - Create a motorhome
-    public void createMotorhome(double basePrice, String brand, int capacity, int mileage, String model, String regNum) {
+    // Create a motorhome
+    public Motorhome createMotorhome(double basePrice, String brand, int capacity, int mileage, String model, String regNum) {
         Motorhome newMotorhome = Motorhome.builder()
                 .basePrice(basePrice)
                 .brand(brand)
@@ -143,6 +144,7 @@ public class MotorhomeService {
                 .regNumber(regNum)
                 .build();
         motorhomeRepository.save(newMotorhome);
+        return newMotorhome;
     }
 
 }

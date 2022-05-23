@@ -16,7 +16,7 @@ public class CancellationFeeService {
     @Autowired
     private CancellationFeeRepository cancellationFeeRepository;
 
-    // Select fee
+    // Select a fee
     public CancellationFee selectFee(Booking booking) {
         LocalDate currentDate = LocalDate.now();
         LocalDate bookingStartDate = booking.getStartDate().toLocalDate();

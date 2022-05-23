@@ -11,12 +11,14 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer getByDLN(int num) {
+    // Get a customer by driving licence number
+    public Customer getCustomerByDLN(int num) {
         return customerRepository.findByDrivingLicenceNumber(num).orElse(null);
     }
 
-    public Customer getOrCreate(int dln,String first, String last, int phone) {
-        Customer customer = getByDLN(dln);
+    // Get a customer or create one and return it
+    public Customer getOrCreateCustomer(int dln, String first, String last, int phone) {
+        Customer customer = getCustomerByDLN(dln);
         if (customer == null) {
             customer = Customer.builder()
                     .drivingLicenceNumber(dln)

@@ -1,7 +1,6 @@
 package com.spring.nordicmotorhomes.Service;
 
 import com.spring.nordicmotorhomes.Entity.Extra;
-import com.spring.nordicmotorhomes.Entity.Motorhome;
 import com.spring.nordicmotorhomes.repository.ExtraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,14 +14,16 @@ public class ExtraService {
     @Autowired
     private ExtraRepository extraRepository;
 
-    public Extra getById(long id) {
+    // Get extra by id
+    public Extra getExtraById(long id) {
         return extraRepository.findById((long) id).orElse(null);
     }
 
-    public Set<Extra> getExtrasByIDs(Set<Integer> extraIDs) {
+    // Get extras by id-s
+    public Set<Extra> getExtrasByIds(Set<Integer> extraIDs) {
         Set<Extra> extras = new HashSet<>();
         for (int id : extraIDs) {
-            Extra extra = getById((long) id);
+            Extra extra = getExtraById((long) id);
             if (extra == null) {
                 return null;
             }
@@ -31,6 +32,7 @@ public class ExtraService {
         return extras;
     }
 
+    // Get extra's total price
     public double getExtrasTotalPrice(Set<Extra> extras) {
         double total = 0;
         for (Extra extra : extras) {
@@ -39,12 +41,13 @@ public class ExtraService {
         return total;
     }
 
-    //Test method - create extra
-    public void createExtra(double price, String type) {
+    // Create extra
+    public Extra createExtra(double price, String type) {
         Extra newExtra = Extra.builder()
                 .price(price)
                 .type(type)
                 .build();
         extraRepository.save(newExtra);
+        return newExtra;
     }
 }

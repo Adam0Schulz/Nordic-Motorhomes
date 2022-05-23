@@ -37,8 +37,8 @@ public class SeasonService {
     // Get all seasons
     public List<Season> getAllSeasons() { return seasonRepository.findAll(); }
 
-    // Test method - create season
-    public void createSeason(Date start, Date end, String name, double percent) {
+    // Create season
+    public Season createSeason(Date start, Date end, String name, double percent) {
         Season newSeason = Season.builder()
                 .startDate(start)
                 .endDate(end)
@@ -46,5 +46,6 @@ public class SeasonService {
                 .percentage(percent)
                 .build();
         seasonRepository.save(newSeason);
+        return newSeason;
     }
 }

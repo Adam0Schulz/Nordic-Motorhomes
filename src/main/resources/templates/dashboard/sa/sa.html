@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
@@ -10,18 +10,18 @@
 <div class="main-content">
     <!--Top navbar consisting of logo and employee avatar-->
     <nav class="top-nav">
-        <img class="logo"src="/images/logo-white.png" alt="logo">
+        <img class="logo" src="/static/images/logo-white.png" alt="logo">
         <div class="top-buttons">
-            <img class="avatar"src="/images/Avatar.png" alt="avatar">
-            <img class="avatar"src="/images/Group%20253.png" alt="log-out">
+            <img class="avatar" src="/static/images/Avatar.png" alt="avatar">
+            <img class="avatar" src="/static/images/Group%20253.png" alt="log-out">
         </div>
 
     </nav>
     <div class="flex">
         <div class="side-nav">
-            <a href="index.html"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
-            <a href="motorhomes.html"><img src="/images/truck.png" alt="motorhomes-icon"></a>
-            <a href="location.html"><img src="/images/map-pin.png" alt="locations-icon"></a>
+            <a href="index.html"><img class="booking-img" src="/static/images/calendar.png" alt="bookings-icon"></a>
+            <a href="motorhomes.html"><img src="/static/images/truck.png" alt="motorhomes-icon"></a>
+            <a href="location.html"><img src="/static/images/map-pin.png" alt="locations-icon"></a>
         </div>
         <div class="mid-flex">
             <div class="new-booking">
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="illustration">
-                <img src="/images/Illustration.png" alt="illustration">
+                <img src="/static/images/Illustration.png" alt="illustration">
             </div>
             <!--Tables section-->
             <div class="active-bookings">
@@ -117,38 +117,14 @@
                     <thead>
                     <th>ID</th>
                     <th>Name</th>
-                    <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                    <th><a href=""><img src="/static/images/arrow-up-right.png" alt="arrow-icon"></a></th>
                     </thead>
                     <tr>
                         <td>23456</td>
                         <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                        <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
                     </tr>
-                    <tr>
-                        <td>23456</td>
-                        <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
-                    </tr>
-                    <tr>
-                        <td>23456</td>
-                        <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
-                    </tr>
-                    <tr>
-                        <td>23456</td>
-                        <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
-                    </tr>
-                    <tr>
-                        <td>23456</td>
-                        <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
-                    </tr>
-                    <tr>
-                        <td>23456</td>
-                        <td>Simona Tingleff Kardel</td>
-                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
-                    </tr>
+
                     <tr class="last-row"></tr>
                 </table>
             </div>
@@ -195,7 +171,7 @@
                 </table>
             </div>
             <div class="illustration2">
-                <img src="/images/Online%20calendar-amico%201.png" alt="illustration">
+                <img src="/static/images/Online%20calendar-amico%201%20(1).png" alt="illustration">
             </div>
             <div class="upcoming-bookings">
                 <h2>Upcoming Bookings</h2>

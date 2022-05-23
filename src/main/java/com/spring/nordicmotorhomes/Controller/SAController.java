@@ -5,7 +5,10 @@ import com.spring.nordicmotorhomes.Entity.Employee;
 import com.spring.nordicmotorhomes.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Date;
@@ -17,7 +20,7 @@ import java.util.Set;
 @Controller
 public class SAController {
 
-    @Autowired
+    /*@Autowired
     private EmployeeService employeeService;
 
     @Autowired
@@ -27,25 +30,39 @@ public class SAController {
     private ExtraService extraService;
 
     @Autowired
-    private BookingService bookingService;
-
-    @Autowired
     private SeasonService seasonService;
 
     @Autowired
-    private SystemVariableService systemVariableService;
+    private SystemVariableService systemVariableService;*/
+
+    @Autowired
+    private BookingService bookingService;
 
 
     @GetMapping("/dashboard/sa")
-    public String index () {
-        if(EmployeeService.getCurrentEmp() == null) {
+    public String index (Model model) {
+        if(EmployeeService.getCurrentEmp() == null || (EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
             return "redirect:/login";
         }
-        if(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant")) {
-            return "dashboard/sa/index";
-        }
-        return "redirect:/login";
+
+        List<Booking> activeBookings = bookingService.getActiveBookings();
+        List<Booking> pastBookings = bookingService.getPastBookings();
+        List<Booking> futureBookings = bookingService.getFutureBookings();
+
+        model.addAttribute("activeBookings", activeBookings);
+        model.addAttribute("pastBookings", pastBookings);
+        model.addAttribute("futureBookings", futureBookings);
+        return "dashboard/sa/index";
     }
+
+    @PostMapping("/dashboard/sa")
+    public String addBooking() {
+        return "";
+    }
+
+
+
+
 
     /*@ResponseBody
     @GetMapping("dashboard/sa/create-booking-test")

@@ -25,16 +25,18 @@ public class SystemVariableService {
         return systemVariableRepository.findByName("motorhome availability buffer").get().getValue();
     }
 
+    // Get additional kilometer fee - returns the value of the variable
     public double getAdditionalKilometerFee() {
         return systemVariableRepository.findByName("additional drop-off kilometer fee").get().getValue();
     }
 
-    // Test method - create variable
-    public void createVariable(String name, double value) {
+    // Create variable
+    public SystemVariable createVariable(String name, double value) {
         SystemVariable newVariable = SystemVariable.builder()
                 .name(name)
                 .value(value)
                 .build();
         systemVariableRepository.save(newVariable);
+        return newVariable;
     }
 }

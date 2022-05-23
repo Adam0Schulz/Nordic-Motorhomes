@@ -14,14 +14,28 @@ import java.util.ArrayList;
 @Service
 public class EmployeeService {
 
+    // static attribute to keep track of who is logged in
     private static Employee currentEmp;
+
+    // Set current employee
+    public static void setCurrentEmp(Employee emp) {
+        currentEmp = emp;
+    }
+
+    // Get current employee
+    public static Employee getCurrentEmp() {
+        return currentEmp;
+    }
+
+
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
+    // Creating password encoder for hashing password
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-
+    // Login - checks if the employee exists, validates password and returns the employee
     public Employee login(String username, String password) {
 
         Employee employee = null;
@@ -37,20 +51,13 @@ public class EmployeeService {
         return employee;
     }
 
-    public static void setCurrentEmp(Employee emp) {
-        currentEmp = emp;
+    // Get employee by id
+    public Employee getEmpById(long id) {
+        return employeeRepository.findById(id).orElse(null);
     }
 
-    public static Employee getCurrentEmp() {
-        return currentEmp;
-    }
-
-    public Employee getById(long id) {
-        return employeeRepository.findById((long) id).orElse(null);
-    }
-
-    // Test method - create employee
-    public void createEmployee(int cpr, String email, String first, String last, String password, int phone, String title) {
+    // Create employee
+    public Employee createEmp(int cpr, String email, String first, String last, String password, int phone, String title) {
         Employee newEmployee = Employee.builder()
                 .CPR(cpr)
                 .email(email)
@@ -61,8 +68,10 @@ public class EmployeeService {
                 .title(title)
                 .build();
         save(newEmployee);
+        return newEmployee;
     }
 
+    // Save - hashes the password before it saves the employee
     public Employee save(Employee employee) {
         String hashedPassword = passwordEncoder.encode(employee.getPassword());
         employee.setPassword(hashedPassword);
