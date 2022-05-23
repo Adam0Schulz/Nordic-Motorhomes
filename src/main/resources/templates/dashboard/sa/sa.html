@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="sa.css">
+
+</head>
+<body>
+<div class="main-content">
+    <!--Top navbar consisting of logo and employee avatar-->
+    <nav class="top-nav">
+        <img class="logo"src="/images/logo-white.png" alt="logo">
+        <div class="top-buttons">
+            <img class="avatar"src="/images/Avatar.png" alt="avatar">
+            <img class="avatar"src="/images/Group%20253.png" alt="log-out">
+        </div>
+
+    </nav>
+    <div class="flex">
+        <div class="side-nav">
+            <a href="index.html"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
+            <a href="motorhomes.html"><img src="/images/truck.png" alt="motorhomes-icon"></a>
+            <a href="location.html"><img src="/images/map-pin.png" alt="locations-icon"></a>
+        </div>
+        <div class="mid-flex">
+            <div class="new-booking">
+                <h2>New Booking</h2>
+
+                <!--Next div will be the horizontal lines to display the steps.-->
+                <div class="steps">
+                    <div class="step-one"></div>
+                    <div class="step-two"></div>
+                    <div class="step-three"></div>
+                </div>
+                <div>
+                    <form action="">
+                        <!--First step-->
+                        <div class="first-step">
+
+                            <div class="split1">
+                                <label for="">First Name</label>
+                                <input type="text" name="" id="" required>
+                            </div>
+                            <div class="split2">
+                                <label for="">Last Name</label>
+                                <input type="text" name="" id="" required>
+                            </div>
+                            <div class="split1">
+                                <label for="">CPR Number</label>
+                                <input type="text" name="" id="" required>
+                            </div>
+                            <div class="split2">
+                                <label for="">Phone Number</label>
+                                <input type="text" name="" id="" required>
+                            </div>
+
+                            <div class="split1">
+                                <label  for="">Start Date</label>
+                                <input class="date" type="date" required>
+                            </div>
+                            <div class="split2">
+                                <label for="">End Date</label>
+                                <input class="date" type="date" required>
+                            </div>
+
+
+                        </div>
+                        <!--Second-step-->
+                        <div class="second-step">
+                            <label for="">Vehicle</label>
+                            <select name="" id="" required>
+                                <option value="">motorhome</option>
+                                <option value="">motorhome</option>
+                                <option value="">motorhome</option>
+                                <option value="">motorhome</option>
+                            </select>
+                            <label for="">Extras</label>
+                            <!--Has to be done with javascript to add checkbox-->
+                            <select name="extras" id="">
+                                <option value="">BBQ grill</option>
+                                <option value="">Bike rack</option>
+                                <option value="">Chairs</option>
+                                <option value="">Bed linen</option>
+                            </select>
+                        </div>
+                        <!--Third-step-->
+                        <div class="third-step">
+                            <label for="">Pick-up location</label>
+                            <input type="text" required>
+                            <label for="">Time</label>
+                            <input type="time">
+                            <label for="">Drop-off location</label>
+                            <input type="text" required>
+                        </div>
+                        <!--Buttons - to toggle -->
+                        <div class="buttons">
+                            <button class="btn-add">
+                                <input class="idk" type="submit" value="Add">
+                            </button>
+                            <button class="btn-next">
+                                <input type="submit" value="Next  >">
+
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="illustration">
+                <img src="/images/Illustration.png" alt="illustration">
+            </div>
+            <!--Tables section-->
+            <div class="active-bookings">
+                <h2>Active Bookings</h2>
+                <table>
+                    <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                    </thead>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr class="last-row"></tr>
+                </table>
+            </div>
+            <div class="past-bookings">
+                <h2>Past Bookings</h2>
+                <table>
+                    <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                    </thead>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr class="last-row"></tr>
+
+                </table>
+            </div>
+            <div class="illustration2">
+                <img src="/images/Online%20calendar-amico%201.png" alt="illustration">
+            </div>
+            <div class="upcoming-bookings">
+                <h2>Upcoming Bookings</h2>
+                <table>
+                    <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                    </thead>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr>
+                        <td>23456</td>
+                        <td>Simona Tingleff Kardel</td>
+                        <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
+                    </tr>
+                    <tr class="last-row"></tr>
+
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--Side navbar-->
+</div>
+
+</body>
+</html>
