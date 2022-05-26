@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/css/sa/motorhomes.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            const motorhomes = [{
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }, {
+                "brand": "Ford",
+                "model": "f-150",
+                "reg_number": "AA 86 257",
+                "capacity": 5,
+                "category": "B",
+                "price": 150
+            }]
+            const bookings = [{
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }, {
+                "id": 12584,
+                "name": "Adam Schulz",
+                "startDate": "20-05-2022",
+                "endDate": "20-6-2022"
+            }]
+
+
+            motorhomes.forEach(motorhome => {
+                let listItem = $('<div></div>').attr("class", "motorhome_list_item")
+                let listSubItemOne = $('<div></div>')
+                let listSubItemTwo = $('<div></div>')
+
+                $('<img/>').attr("src","/static/images/caravan_PNG36.webp").attr("class", "motorhome_small_img").appendTo(listSubItemOne)
+                $('<h4></h4>').text(motorhome.brand + " - " + motorhome.model).appendTo(listSubItemTwo)
+                $('<p></p>').text(motorhome.reg_number).appendTo(listSubItemTwo)
+
+                listSubItemOne.appendTo(listItem)
+                listSubItemTwo.appendTo(listItem)
+                $('#motorhome_list_cont').append(listItem)
+
+            });
+
+            bookings.forEach(booking => {
+                let row = $('<tr></tr>')
+                $('<td></td>').text(booking.id).appendTo(row)
+                $('<td></td>').text(booking.name).appendTo(row)
+                $('<td></td>').text(booking.startDate).appendTo(row)
+                $('<td></td>').text(booking.endDate).appendTo(row)
+                $('<td></td>').text('...').appendTo(row)
+                $('#booking-table_body').append(row)
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+<div class="main-content">
+    <!--Top navbar consisting of logo and employee avatar-->
+    <nav class="top-nav">
+        <img class="logo" src="/static/images/logo-white.png" alt="logo">
+        <div class="top-buttons">
+            <img class="avatar" src="/static/images/Avatar.png" alt="avatar">
+            <img class="avatar" src="/static/images/Group%20253.png" alt="log-out">
+        </div>
+
+    </nav>
+    <div class="flex">
+        <div class="side-nav">
+            <a href="dashboard/sa"><img class="booking-img" src="/static/images/calendar.png" alt="bookings-icon"></a>
+            <a href="dashboard/sa/motorhomes"><img src="/static/images/truck.png" alt="motorhomes-icon"></a>
+            <a href="dashboard/sa/locations"><img src="/static/images/map-pin.png" alt="locations-icon"></a>
+        </div>
+
+        <main>
+            <h2 class="main-title">Motorhomes</h2>
+            <div class="mid-flex">
+
+                <div id="motorhome_list_cont"></div>
+                <div class="motorhome_cont">
+                    <div class="motorhome_info_cont">
+                        <div class="text_cont">
+                            <div class="heading_cont">
+                                <h2 class="motorhome_heading">Motorhome</h2>
+                                <p class="motorhome_subheading">AA 85 624</p>
+                            </div>
+                            <div class="specs_cont">
+                                <div class="capacity_cont spec_cont">
+                                    <div class="icon_cont"><img class="specs_icon" src="/static/images/users.png"
+                                                                alt="capacity icon"></div>
+                                    <div class="spec_text_cont">
+                                        <p>Capacity</p>
+                                        <h4>50</h4>
+                                    </div>
+                                </div>
+                                <div class="category_cont spec_cont">
+                                    <div class="icon_cont"><img class="specs_icon" src="/static/images/car.png" alt="category icon">
+                                    </div>
+                                    <div class="spec_text_cont">
+                                        <p>Category</p>
+                                        <h4>B</h4>
+                                    </div>
+
+                                </div>
+                                <div class="price_cont spec_cont">
+                                    <div class="icon_cont"><img class="specs_icon" src="/static/images/coin-stack.png"
+                                                                alt="price icon / euro symbol"></div>
+                                    <div class="spec_text_cont">
+                                        <p>Price</p>
+                                        <h4>100</h4>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="motorhome_img_cont">
+                            <div class="img_cont">
+                                <img src="/static/images/caravan_PNG36.webp" alt="motorhome image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="motorhome_bookings">
+                        <table>
+                            <thead>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Start date</th>
+                            <th>End date</th>
+                            <th><a href=""><img src="/static/images/arrow-up-right.png" alt="arrow-icon"></a>
+                            </th>
+                            </thead>
+                            <tbody id="booking-table_body">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</div>
+
+
+</div>
+
+</body>
+</html>
