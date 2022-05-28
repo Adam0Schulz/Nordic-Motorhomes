@@ -47,7 +47,7 @@ body {
 }
 
 .container::before {
-    background-image: url(images/logo.png);
+    background-image: url(../../images/logo.png);
     background-size: 100% auto;
     background-repeat: no-repeat;
     background-position: center;

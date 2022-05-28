@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    /* Variables */
+    --background-color: #576745;
+
+    --container-background: #f9f9f9;
+
+    --wrapper-width: 1100px;
+
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    overflow: hidden;
+    overflow: -moz-hidden-unscrollable;
+
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    height: 6.5rem;
+}
+
+.logo {
+    height: 2.2rem;
+    width: 12rem;
+    margin-top: 2.5rem;
+    margin-left: 2.2rem;
+
+}
+
+.top-buttons {
+    margin-top: 2.5rem;
+    margin-right: 5rem;
+
+}
+
+.top-buttons>* {
+    height: 3rem;
+    margin-left: 1rem;
+
+}
+
+.avatar {}
+
+.flex {
+    display: flex;
+}
+
+.side-nav {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12rem;
+    width: auto;
+}
+
+.side-nav>a>* {
+    height: 1.7rem;
+    margin-left: 2.2rem;
+}
+
+h2 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2rem;
+    line-height: 2rem;
+    padding-bottom: 1rem;
+
+    color: #302C2C;
+}
+
+.mid-flex {
+    background: var(--container-background);
+    border-radius: 40px 0 0 40px;
+    box-shadow: 100px 100px 150px #3440541f;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 2rem;
+
+}
+
+td {
+    padding: 1.5rem;
+    border-bottom: 1px solid #D8D8DB;
+
+}
+
+
+
+.main-title {
+    width: 100%;
+}
+
+#motorhome_list_cont {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 20em;
+    height: 100%;
+    overflow-y: scroll;
+
+}
+
+#motorhome_list_cont div {
+    padding: .5em 1em;
+}
+
+#motorhome_list_cont div:hover {
+    background: lightgray;
+}
+
+
+.mid-flex {
+    background-color: none;
+    justify-content: space-around;
+    border-radius: none;
+    box-shadow: none;
+    margin: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 75vh;
+}
+
+main {
+    padding: 4rem;
+    background: var(--container-background);
+    border-radius: 40px 0 0 40px;
+    box-shadow: 100px 100px 150px #3440541f;
+    width: calc(100vw - 5.9rem);
+    height: calc(100vh - 6.4rem);
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-y: hidden;
+    margin-left: 2rem;
+}
+
+.motorhome_cont {
+    width: calc(100% - 25em);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.motorhome_info_cont {
+    display: flex;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 15em;
+    overflow: hidden;
+    padding: 2em;
+
+}
+
+.motorhome_info_cont .text_cont {
+
+    flex-grow: 3;
+    min-width: 27em;
+    position: relative;
+}
+
+.motorhome_info_cont .motorhome_img_cont {}
+
+.motorhome_img_cont {
+    width: 15em;
+    display: flex;
+    align-items: center;
+}
+
+.img_cont {
+    width: 100%;
+    height: 100%;
+}
+
+.motorhome_img_cont img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.heading_cont {
+    height: 50%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.specs_cont {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 2em;
+    align-items: center;
+    height: 50%;
+    max-width: 45rem;
+}
+
+.specs_icon {
+    width: 2em;
+
+}
+
+.icon_cont {
+    display: inline-block;
+}
+
+.spec_text_cont {
+    display: inline-block;
+
+}
+
+.motorhome_bookings {
+    overflow-y: scroll;
+    height: 20em;
+    flex-grow: 1;
+    margin-top: 3em;
+    border-radius: 25px;
+    background-color: var(--container-background);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.motorhome_bookings table {
+    width: 100%;
+    background-color: var(--container-background);
+    position: relative;
+    border-collapse: collapse;
+}
+
+.motorhome_bookings table thead {
+    width: 100%;
+    color: #5A5757;
+    background-color: #ECEEE0;
+    text-align: left;
+}
+
+th {
+    padding: 1em 1.5em;
+}
+
+th img {
+    width: 1.5em;
+}
+
+h2,
+h3,
+h4,
+h5 {
+    color: #302C2C;
+}
+
+p {
+    color: #B0B0B0;
+}
+
+.motorhome_small_img {
+    width: 3em;
+    height: 3em;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.motorhome_list_item {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-clip: content-box;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 10px;
+}
