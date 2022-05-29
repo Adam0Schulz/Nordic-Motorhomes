@@ -2,6 +2,7 @@ package com.spring.nordicmotorhomes.Controller;
 
 import com.spring.nordicmotorhomes.Entity.Booking;
 import com.spring.nordicmotorhomes.Entity.Employee;
+import com.spring.nordicmotorhomes.Entity.Motorhome;
 import com.spring.nordicmotorhomes.Service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +39,9 @@ public class SAController {
     @Autowired
     private BookingService bookingService;
 
+    @Autowired
+    private MotorhomeService motorhomeService;
+
 
     @GetMapping("/dashboard/sa")
     public String index (Model model) {
@@ -58,6 +62,14 @@ public class SAController {
     @PostMapping("/dashboard/sa")
     public String addBooking() {
         return "";
+    }
+
+
+    @GetMapping("/dashboard/sa/motorhomes")
+    public String motorhomes(Model model) {
+        List<Motorhome> motorhomes = motorhomeService.getAllMotorhomes();
+        model.addAttribute("motorhomes", motorhomes);
+        return "dashboard/sa/motorhomes";
     }
 
 
