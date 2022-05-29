@@ -10,11 +10,14 @@
     <title>Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/static/images/NM.ico">
+    <link rel="icon" type="image/x-icon" href="/static/images/fav.ico">
     <link rel="stylesheet" href="/static/css/login/login.css">
 </head>
 <body>
 <div class="wrapper">
+    <div class="top-logo">
+        <img class="logo-img" src="/static/images/Group%2058.png" alt="logo-img">
+    </div>
     <div class="container">
         <img class="camper-img" src="/static/images/camper.png" alt="van-img">
         <div>
@@ -26,8 +29,9 @@
                 <label for="password">Password</label><br>
                 <input th:classappend="${emp} == null ? error-active " type="password" name="password" id="password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;"><br>
                 <input class="login-btn" type="submit" value="Login">
-                <p th:if="${emp} == null"  class="error">Incorrect email or password!</p>
             </form>
+            <p th:if="${emp} == null"  class="error">Incorrect email or password!</p>
+
         </div>
     </div>
 </div>
