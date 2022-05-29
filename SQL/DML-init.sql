@@ -266,3 +266,174 @@ INSERT INTO motorhomes (id, base_price, brand, capacity, mileage, model, reg_num
 VALUES (@next, 410, 'Winnebago Ekko', 6, 74654, 'Family Standard', 'HD 86 681', 'C');
 UPDATE motorhome_sequence
 SET next_val = @next + 1;
+
+/* ----------- Customers -----------*/
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Tonya', 'Hudak', 5023906183, 'TonyaTHudak@dayrep.com', 'U6292721184238');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Amber', 'Gardner', 9068424357, 'AmberJGardner@dayrep.com','S04381914');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Tonya', 'Almasi', 5963912383, 'TAlmasi@dayrep.com', 'U124921184271');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Jonathon', 'Cannon', 6143241306, 'eduecureti@jagomail.com','S07985128');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Kristie', 'Curtis', 6182679669, 'KristieECurtis@jourrapide.com','5128523261');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Karen', 'Steffan', 7404160104, 'KarenJSteffan@teleworm.us','J713152314749');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'John', 'Hamby', 9033225697, 'JohnEHamby@dayrep.com','53835678');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Mary', 'Baez', 9702010292, 'Theigs41@cuvox.de','P37780848');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Wayne', 'Hargis', 50677549, 'enumeram@dimana.live','109465194');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Tanya', 'Shepard', 52468734, 'rotm10@gmailiz.com','VYG400613');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Sawa', 'Voronov', 54578732, 'kiltie@gkqil.com','478774238');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Ksenia', 'Czarnecka', 696601426, 'KseniaCzarnecka@rhyta.com','15MUT21502');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Jolanta', 'Kucharska', 663470396, 'JolantaKucharska@armyspy.com','K57831779');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Andrzej', 'Nowicki', 531788438, 'tbasuk@dmxs8.com','789708666');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Ania', 'Walczak', 692515854, 'jkjk@nproxi.com','VC077725');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Sada', 'Robnik', 041150355, 'SadaRobnik@armyspy.com','0792329262765');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Huska', 'Gazdek', 040713380, 'clubbers@cuedigy.com','88LQH94540');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Luba', 'Soukup', 51854156, 'thebza10@osmye.com','GXEVVPT26940');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Ingrid', 'Simensen', 97732793, 'Simensen@teleworm.com','SQQ522867');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Sibal', 'Handal', 49639182, 'du3ki6@dimana.live','57DBX25640');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Qatadah', 'Masih', 46546538, 'neoromantik23@gre.com','9213001');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Ruwaid', 'Bishara', 606996997982, 'mannixbb@kangsua.com','ZKO292405');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Rafael', 'Pereira', 21973820, 'imegasuper@gmailvn.net','12BTU31758');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Leonor', 'Ferreira', 601692716, 'auto215827@cuedigy.com','SC044281E');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Manuela', 'Cardoso', 6018253895, 'placdday@gmailiz.com','E22170591');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Camila', 'Gomes', 36463584, 'Gomes123@armyspy.com','FUHRWIU00931');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Jens', 'Wirtz', 6853139967, 'WirtzJ@gmail.com','293882759');
+UPDATE customer_sequence
+SET next_val = @next + 1;
+
+SELECT next_val INTO @next FROM customer_sequence;
+INSERT INTO employees (id, first_name, last_name, phone_number, email, driving_license_number)
+VALUES (@next, 'Ulrike', 'Eberhart', 040668945, 'suava69@gmailni.com','E51568026');
+UPDATE customer_sequence
+SET next_val = @next + 1;
