@@ -21,7 +21,6 @@ body {
 .top-logo{
     margin:1rem auto 0 auto;
     max-height:100%;
-
 }
 .logo-img{
     max-height:7rem;
@@ -150,7 +149,7 @@ input.error-active {
     }
 
     input,button {
-        width: 19rem ;
+        width: 22.5rem ;
     }
 
     .container::before {
@@ -192,9 +191,8 @@ input.error-active {
     }
 
     input, button {
-        width: 15.5rem;
+        width: 22.5rem;
     }
-
 
   }
 
