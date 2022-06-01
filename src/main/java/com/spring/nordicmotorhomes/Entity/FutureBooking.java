@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @ToString
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "future_bookings") // Naming the database table

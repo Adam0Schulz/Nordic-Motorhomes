@@ -37,6 +37,9 @@
                 $('#popup-content').remove()
             })
 
+            $('thead').click(function() {
+                window.location.replace('/dashboard/sa/bookings/' + $(this).attr('id'))
+            })
 
         })
 
@@ -124,7 +127,7 @@
                     </div>
                     <div class="motorhome_bookings">
                         <table>
-                            <thead>
+                            <thead th:attr="id=${motorhome.ID}">
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>

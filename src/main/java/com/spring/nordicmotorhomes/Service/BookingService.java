@@ -48,6 +48,8 @@ public class BookingService {
 
     // Create booking - creates and saves booking
     public Booking createBooking( Set<Extra> extras, Customer customer, Motorhome motorhome, Employee employee, Date start, Date end, String pickUp, Time pickUpTime, String dropOff, double total) {
+
+        // Creating new booking
         Booking newBooking = Booking.builder()
                 .extras(extras)
                 .customer(customer)
@@ -61,7 +63,13 @@ public class BookingService {
                 .totalPrice(total)
                 .build();
 
+        // Creating future booking
+        FutureBooking futureBooking = FutureBooking.builder()
+                .booking(newBooking)
+                .build();
+
         // saving data to database
+        newBooking.setFutureBooking(futureBooking);
         bookingRepository.save(newBooking);
         return newBooking;
     }
@@ -372,7 +380,6 @@ public class BookingService {
         return ((motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras)) * seasonPercentage;
     }
 
-
     // Picked up - adds given booking to active bookings
     public Booking pickedUp(long bookingID) {
 
@@ -383,6 +390,7 @@ public class BookingService {
         ActiveBooking activeBooking = ActiveBooking.builder()
                 .booking(booking)
                 .build();
+        booking.setFutureBooking(null);
         booking.setActiveBooking(activeBooking);
         bookingRepository.save(booking);
 

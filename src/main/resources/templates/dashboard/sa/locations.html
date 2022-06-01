@@ -7,6 +7,21 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/css/sa/locations.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+                crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(() => {
+                $('.booking_table_row').click(function () {
+                    window.location.replace('/dashboard/sa/booking/' + $(this).attr('id'))
+                })
+
+                $('#upcomingDropOffs, #upcomingPickUps').click(function() {
+                    window.location.replace('/dashboard/sa/' + $(this).attr('id'))
+                })
+
+            })
+        </script>
     </head>
     <body>
    
@@ -65,7 +80,7 @@
                             <div class="upcoming-pick-ups">
                                 <h2 class="table-heading">Upcoming pick-ups</h2>
                                 <table>
-                                    <thead>
+                                    <thead id="upcomingPickUps">
                                     <tr>
                                         <th>Date</th>
                                         <th>Time</th>
@@ -74,7 +89,7 @@
                                         <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
                                     </tr>
                                     </thead>
-                                    <tr th:each="booking : ${pickups}">
+                                    <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" th:each="booking : ${pickups}">
                                         <td th:text="${booking.startDate}"></td>
                                         <td th:text="${booking.pickUpTime}"></td>
                                         <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
@@ -93,7 +108,7 @@
                             <div class="upcoming-pick-ups">
                                 <h2 class="table-heading">Upcoming drop-offs</h2>
                                 <table>
-                                    <thead>
+                                    <thead id="upcomingDropOffs">
                                     <tr>
                                         <th>Date</th>
                                         <th>Name</th>
@@ -101,7 +116,7 @@
                                         <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a></th>
                                     </tr>
                                     </thead>
-                                    <tr th:each="booking : ${dropoffs}">
+                                    <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" th:each="booking : ${dropoffs}">
                                         <td th:text="${booking.endDate}"></td>
                                         <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
                                         <td th:text="${booking.dropOffLocation}"></td>

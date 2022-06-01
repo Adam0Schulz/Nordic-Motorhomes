@@ -249,6 +249,31 @@ public class SAController {
         return "dashboard/sa/bookings";
     }
 
+    @GetMapping("/dashboard/sa/bookings/{id}")
+    public String motorhomeBookings(Model model, @PathVariable String id) {
+        int ID = Integer.parseInt(id);
+        List<Booking> motorhomeBookings = bookingService.getBookingByMotorhomeID(ID);
+        Motorhome motorhome = motorhomeService.getMotorhomeById(ID);
+        model.addAttribute("header", motorhome.getRegNumber() + " - Bookings");
+        model.addAttribute("bookings", motorhomeBookings);
+        return "dashboard/sa/bookings";
+    }
+
+    @GetMapping("/dashboard/sa/upcomingPickUps")
+    public String upcomingPickUps(Model model) {
+        List<Booking> futureBookings = bookingService.getSortedFutureBookings();
+        model.addAttribute("header", "Upcoming pick-ups");
+        model.addAttribute("bookings", futureBookings);
+        return "dashboard/sa/bookings";
+    }
+
+    @GetMapping("/dashboard/sa/upcomingDropOffs")
+    public String upcomingDropOffs(Model model) {
+        List<Booking> futureBookings = bookingService.getSortedActiveBookings();
+        model.addAttribute("header", "Upcoming drop-offs");
+        model.addAttribute("bookings", futureBookings);
+        return "dashboard/sa/bookings";
+    }
 
 
 

@@ -70,8 +70,8 @@ CREATE TABLE IF NOT EXISTS booking_extras (
 CREATE TABLE IF NOT EXISTS seasons (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(10),
-    start_date DATE,
-    end_date DATE,
+    start_month int,
+    end_month int,
     percentage float
 );
 

@@ -21,6 +21,10 @@ body {
     background: var(--background-color);
 }
 
+.clickable:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
 .top-nav {
     display:flex;
     justify-content: space-between;

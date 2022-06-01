@@ -7,15 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/sa/booking.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $('#close-popup-btn').click(function() {
+                window.location.replace('/dashboard/sa')
+            })
+        })
+    </script>
 </head>
 
 <body>
     <div id="popup-content">
     <div class="pop-up">
         <div class="toolbar">
-            <img class="toolbar_icon" src="/images/x.png" alt="close button">
-            <img class="toolbar_icon" src="/images/trash-2.png" alt="trash button">
-            <img class="toolbar_icon" src="/images/edit-3.png" alt="edit button">
+            <img id="close-popup-btn" class="toolbar_icon" src="/images/x.png" alt="close button">
+            <!--<img class="toolbar_icon" src="/images/trash-2.png" alt="trash button">
+            <img class="toolbar_icon" src="/images/edit-3.png" alt="edit button">-->
         </div>
         <header>
             <h2 class="title">Booking</h2>
