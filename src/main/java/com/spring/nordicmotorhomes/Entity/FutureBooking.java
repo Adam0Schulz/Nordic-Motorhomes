@@ -26,7 +26,8 @@ public class FutureBooking {
     )
     private int ID;
 
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookingID", referencedColumnName = "ID")
     private Booking booking;
 }

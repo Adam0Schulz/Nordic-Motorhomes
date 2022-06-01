@@ -138,9 +138,7 @@ main {
     box-shadow: 100px 100px 150px #3440541f;
     width: calc(100vw - 5.9rem);
     height: calc(100vh - 6.4rem);
-    scroll-behavior: smooth;
     overflow-y: scroll;
-    overflow-y: hidden;
     margin-left: 2rem;
 }
 

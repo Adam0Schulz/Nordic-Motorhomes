@@ -12,6 +12,10 @@
                 crossorigin="anonymous"></script>
         <script>
             $(document).ready(() => {
+                $('#logout-btn').click(() => {
+                    window.location.replace('/logout')
+                })
+
                 $('.booking_table_row').click(function () {
                     window.location.replace('/dashboard/sa/booking/' + $(this).attr('id'))
                 })
@@ -30,7 +34,7 @@
                 <img class="logo" src="/images/logo-white.png" alt="logo">
                 <div class="top-buttons">
                     <img class="avatar" src="/images/Avatar.png" alt="avatar">
-                    <img class="avatar" src="/images/logout.png" alt="log-out">
+                    <img id="logout-btn" class="avatar" src="/images/logout.png" alt="log-out">
                 </div>
             </nav>
 

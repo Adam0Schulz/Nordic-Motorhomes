@@ -53,11 +53,14 @@ public class Booking {
     @JoinColumn(name = "employeeID", referencedColumnName = "ID")
     private Employee employee;
 
+
     @OneToOne(mappedBy = "booking")
     private ActiveBooking activeBooking;
 
-    @OneToOne(mappedBy = "booking")
+
+    @OneToOne(mappedBy = "booking", cascade = CascadeType.ALL)
     private FutureBooking futureBooking;
+
 
     @OneToOne(mappedBy = "booking")
     private PastBooking pastBooking;

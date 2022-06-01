@@ -150,7 +150,7 @@ input {
     margin: 0.5rem 0 1rem 0;
     padding: 0.5rem;
     border-radius:0.5rem;
-    box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
 }
 
 .step-buttons{
@@ -168,7 +168,7 @@ input {
 .date {
     background: #ECEEE0;
     border: 1px solid #576746;
-    box-shadow: 0 1px 2px rgb(16 24 40 / 5%);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 0.5rem;
     width: 15rem;
     min-height: 2.75rem;
@@ -213,7 +213,7 @@ tbody {
 
 }
 .top>*{
-    min-height:max(6vh, 2.5rem);
+    height: 2.2rem;
 }
 
 .top-buttons>*{
@@ -224,7 +224,7 @@ tbody {
 }
 .side-buttons>*{
     margin-top: 3rem;
-    max-width:3vw;
+    max-width: 1.7rem;
 
 }
 .graphic, .graphic2{
