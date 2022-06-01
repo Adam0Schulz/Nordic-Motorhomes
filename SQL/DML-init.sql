@@ -624,35 +624,21 @@ SET next_val = @next + 1;
 
 /* ----------- booking_extras -----------*/
 
-SELECT next_val INTO @next FROM booking_extras_sequence;
-INSERT INTO booking_extras (id, booking_id, extra_id)
-VALUES (@next, 10, 1 );
-UPDATE booking_extras_sequence
-SET next_val = @next + 1;
+INSERT INTO booking_extras (booking_id, extra_id)
+VALUES (10, 1 );
 
-SELECT next_val INTO @next FROM booking_extras_sequence;
-INSERT INTO booking_extras (id, booking_id, extra_id)
-VALUES (@next, 15, 2 );
-UPDATE booking_extras_sequence
-SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM booking_extras_sequence;
-INSERT INTO booking_extras (id, booking_id, extra_id)
-VALUES (@next, 16, 3 );
-UPDATE booking_extras_sequence
-SET next_val = @next + 1;
+INSERT INTO booking_extras (booking_id, extra_id)
+VALUES (15, 2 );
 
-SELECT next_val INTO @next FROM booking_extras_sequence;
-INSERT INTO booking_extras (id, booking_id, extra_id)
-VALUES (@next, 21, 4 );
-UPDATE booking_extras_sequence
-SET next_val = @next + 1;
+INSERT INTO booking_extras (booking_id, extra_id)
+VALUES (16, 3 );
 
-SELECT next_val INTO @next FROM booking_extras_sequence;
-INSERT INTO booking_extras (id, booking_id, extra_id)
-VALUES (@next, 24, 1 );
-UPDATE booking_extras_sequence
-SET next_val = @next + 1;
+INSERT INTO booking_extras (booking_id, extra_id)
+VALUES (21, 4 );
+
+INSERT INTO booking_extras (booking_id, extra_id)
+VALUES (24, 1 );
 
 
 
@@ -710,104 +696,104 @@ SET next_val = @next + 1;
 
 /* ----------- past_bookings -----------*/
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,1);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,2);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,3);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,4);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,5);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,6);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,7);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,8);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,9);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,11);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,12);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,13);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,14);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,15);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,17);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,18);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM past_bookings_sequence;
+SELECT next_val INTO @next FROM past_booking_sequence;
 INSERT INTO past_bookings (id, booking_id)
 VALUES (@next,20);
 UPDATE past_booking_sequence
@@ -884,13 +870,13 @@ SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
 INSERT INTO motorhomes_to_check (id, motorhome_id)
-VALUES (@next,17,4);
+VALUES (@next,17);
 UPDATE motorhome_to_check_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
 INSERT INTO motorhomes_to_check (id, motorhome_id)
-VALUES (@next,18,4);
+VALUES (@next,18;
 UPDATE motorhome_to_check_sequence
 SET next_val = @next + 1;
 
