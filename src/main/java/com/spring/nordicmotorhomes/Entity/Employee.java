@@ -7,11 +7,11 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Getter
 @Setter
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @Builder
 @Table(name = "employees") // Naming the database table
 public class Employee {

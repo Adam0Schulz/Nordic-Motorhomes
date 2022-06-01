@@ -4,55 +4,39 @@
     <meta charset="UTF-8">
     <title>Dashboard</title>
     <link rel="stylesheet" href="/css/sa/motorhomes.css">
+    <link rel="stylesheet" href="/css/sa/pop-up.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script th:inline="javascript">
-        /*<![CDATA[*/
+
         $(document).ready(() => {
-            const motorhomes = /*[[${motorhomes}]]*/ "";
-            /*]]>*/
-            motorhomes.forEach(motorhome => {
-                let listItem = $('<div></div>').attr("class", "motorhome_list_item")
-                let listSubItemOne = $('<div></div>')
-                let listSubItemTwo = $('<div></div>')
 
-                $('<img/>').attr("src","/images/caravan_PNG36.webp").attr("class", "motorhome_small_img").appendTo(listSubItemOne)
-                $('<h4></h4>').text(motorhome.brand + " - " + motorhome.model).appendTo(listSubItemTwo)
-                $('<p></p>').text(motorhome.regNumber).appendTo(listSubItemTwo)
-
-                listSubItemOne.appendTo(listItem)
-                listSubItemTwo.appendTo(listItem)
-                $('#motorhome_list_cont').append(listItem)
-
-            })
-
-
-            $('.motorhome_list_item').click( function (){
+            $('.motorhome_list_item').click( function (e){
                 $('.list_item-active').removeClass('list_item-active')
                 $(this).addClass('list_item-active')
-
-                let motorhome = motorhomes[$(this).index()]
-                $('.motorhome_heading').text(motorhome.brand + " - " + motorhome.model)
-                $('.motorhome_subheading').text(motorhome.regNumber)
-                $('#capacity').text(motorhome.capacity)
-                $('#category').text(motorhome.vehicleCategory)
-                $('#price').text(motorhome.basePrice)
-
-                console.log(motorhome.bookings)
-
-                motorhome.bookings.forEach( booking => {
-                    const row = $('<tr></tr>')
-                    $('<td></td>').text(booking.ID).appendTo(row)
-                    $('<td></td>').text(booking.customer.firstName + " " + booking.customer.lastName).appendTo(row)
-                    $('<td></td>').text(booking.startDate).appendTo(row)
-                    $('<td></td>').text(booking.endDate).appendTo(row)
-                    $('<td></td>').text('...').appendTo(row)
-
-                    $('#booking-table_body').append(row)
-                })
-
+                const index = $(this).index()
+                $('.motorhome_cont').addClass("hidden")
+                $('.motorhome_cont').eq(index).removeClass("hidden")
 
             })
+
+            $('.motorhome_list_item:nth-child(1)').click()
+
+            $('.booking_table_row').click(function(e) {
+                window.location.replace('/dashboard/sa/booking/' + $(this).attr('id'))
+            })
+
+            $('.popup-arrow').click(function (e) {
+                e.preventDefault()
+                $('body').append($('<div></div>').attr('id', 'popup-content'))
+                $('#popup-content').load('popup')
+
+            })
+
+            $('#close-popup-btn').click(function(e) {
+                $('#popup-content').remove()
+            })
+
 
         })
 
@@ -60,6 +44,7 @@
 
 </head>
 <body>
+
 <div class="main-content">
     <!--Top navbar consisting of logo and employee avatar-->
     <nav class="top-nav">
@@ -72,22 +57,33 @@
     </nav>
     <div class="flex">
         <div class="side-nav">
-            <a href="dashboard/sa"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
-            <a href="dashboard/sa/motorhomes"><img src="/images/truck.png" alt="motorhomes-icon"></a>
-            <a href="dashboard/sa/locations"><img src="/images/map-pin.png" alt="locations-icon"></a>
+            <a href="/dashboard/sa"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
+            <a href="/dashboard/sa/motorhomes"><img src="/images/truck.png" alt="motorhomes-icon"></a>
+            <a href="/dashboard/sa/locations"><img src="/images/map-pin.png" alt="locations-icon"></a>
         </div>
 
         <main>
             <h2 class="main-title">Motorhomes</h2>
             <div class="mid-flex">
 
-                <div id="motorhome_list_cont"></div>
-                <div class="motorhome_cont">
+                <div id="motorhome_list_cont" >
+                    <div class="motorhome_list_item clickable" th:each="motorhome : ${motorhomes}">
+                        <div>
+                            <img class="motorhome_small_img" src="${motorhome.image}" />
+
+                        </div>
+                        <div>
+                            <h4 th:text="${motorhome.brand} + ' ' + ${motorhome.model}" ></h4>
+                            <p th:text="${motorhome.regNumber}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="motorhome_cont hidden" th:each="motorhome : ${motorhomes}">
                     <div class="motorhome_info_cont">
                         <div class="text_cont">
                             <div class="heading_cont">
-                                <h2 class="motorhome_heading"></h2>
-                                <p class="motorhome_subheading"></p>
+                                <h2 class="motorhome_heading" th:text="${motorhome.brand} + ' - ' + ${motorhome.model}"></h2>
+                                <p class="motorhome_subheading" th:text="${motorhome.regNumber}"></p>
                             </div>
                             <div class="specs_cont">
                                 <div class="capacity_cont spec_cont">
@@ -95,7 +91,7 @@
                                                                 alt="capacity icon"></div>
                                     <div class="spec_text_cont">
                                         <p>Capacity</p>
-                                        <h4 id="capacity"></h4>
+                                        <h4 id="capacity" th:text="${motorhome.capacity}"></h4>
                                     </div>
                                 </div>
                                 <div class="category_cont spec_cont">
@@ -103,7 +99,7 @@
                                     </div>
                                     <div class="spec_text_cont">
                                         <p>Category</p>
-                                        <h4 id="category"></h4>
+                                        <h4 id="category" th:text="${motorhome.vehicleCategory}"></h4>
                                     </div>
 
                                 </div>
@@ -112,7 +108,7 @@
                                                                 alt="price icon / euro symbol"></div>
                                     <div class="spec_text_cont">
                                         <p>Price</p>
-                                        <h4 id="price"></h4>
+                                        <h4 id="price" th:text="${motorhome.basePrice}"></h4>
                                     </div>
 
                                 </div>
@@ -122,22 +118,30 @@
                         </div>
                         <div class="motorhome_img_cont">
                             <div class="img_cont">
-                                <img src="/images/caravan_PNG36.webp" alt="motorhome image">
+                                <img src="${motorhome.image}" alt="motorhome image">
                             </div>
                         </div>
                     </div>
                     <div class="motorhome_bookings">
                         <table>
                             <thead>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Start date</th>
-                            <th>End date</th>
-                            <th><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a>
-                            </th>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Start date</th>
+                                <th>End date</th>
+                                <th class="popup-arrow"><a href=""><img src="/images/arrow-up-right.png" alt="arrow-icon"></a>
+                                </th>
+                            </tr>
                             </thead>
                             <tbody id="booking-table_body">
-
+                            <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" th:each="booking : ${motorhome.bookings}">
+                                <td th:text="${booking.ID}"></td>
+                                <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
+                                <td th:text="${booking.startDate}"></td>
+                                <td th:text="${booking.endDate}"></td>
+                                <td><img src="/images/more-horizontal.png" /></td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>

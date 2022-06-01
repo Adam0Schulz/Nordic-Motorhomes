@@ -117,9 +117,7 @@ td {
     padding: .5em 1em;
 }
 
-.motorhome_list_item:hover {
-    background: lightgray;
-}
+
 
 
 .mid-flex {
@@ -282,7 +280,14 @@ p {
     background-color: lightgray;
 }
 
+.hidden {
+    display: none;
+}
 
+.clickable:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
 
 
 

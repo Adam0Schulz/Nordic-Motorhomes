@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -13,6 +14,11 @@ public class ExtraService {
 
     @Autowired
     private ExtraRepository extraRepository;
+
+    // Get all extras
+    public List<Extra> getAllExtras() {
+        return extraRepository.findAll();
+    }
 
     // Get extra by id
     public Extra getExtraById(long id) {

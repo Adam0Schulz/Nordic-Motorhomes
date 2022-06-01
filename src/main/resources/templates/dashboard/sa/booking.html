@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/sa/booking.css">
+</head>
+
+<body>
+    <div id="popup-content">
+    <div class="pop-up">
+        <div class="toolbar">
+            <img class="toolbar_icon" src="/images/x.png" alt="close button">
+            <img class="toolbar_icon" src="/images/trash-2.png" alt="trash button">
+            <img class="toolbar_icon" src="/images/edit-3.png" alt="edit button">
+        </div>
+        <header>
+            <h2 class="title">Booking</h2>
+            <h2 class="reg_num" th:text="'#' + ${booking.ID}"></h2>
+        </header>
+        <form class="main-popup-grid">
+            <div>
+                <h3 class="info_heading">Customer details</h3>
+                <div class="info_cont">
+                    <div>
+                        <p>First name</p>
+                        <h4 th:text="${booking.customer.firstName}"></h4>
+                    </div>
+                    <div>
+                        <p>Last name</p>
+                        <h4 th:text="${booking.customer.lastName}"></h4>
+                    </div>
+                    <div>
+                        <p>Driving Licence Number</p>
+                        <h4 th:text="${booking.customer.drivingLicenceNumber}"></h4>
+                    </div>
+                    <div>
+                        <p>Phone number</p>
+                        <h4 th:text="${booking.customer.phoneNumber}"></h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="info_heading">Motorhome details</h3>
+                <div class="info_cont">
+                    <div>
+                        <p>Motorhome</p>
+                        <h4 th:text="${booking.motorhome.brand} + ' ' + ${booking.motorhome.model}"></h4>
+                    </div>
+                    <div>
+                        <p>Reg. number</p>
+                        <h4 th:text="${booking.motorhome.regNumber}"></h4>
+                    </div>
+                    <div>
+                        <p>Capacity</p>
+                        <h4 th:text="${booking.motorhome.capacity}"></h4>
+                    </div>
+                </div>
+            </div>
+            <div class="button_cell">
+                <button>Mark as picked up</button>
+                <button>Mark as dropped off</button>
+                <button>Cancel booking</button>
+            </div>
+            <div>
+                <h3 class="info_heading">Booking details</h3>
+                <div class="info_cont">
+                    <div>
+                        <p>Start date</p>
+                        <h4 th:text="${booking.startDate}"></h4>
+                    </div>
+                    <div>
+                        <p>End date</p>
+                        <h4 th:text="${booking.endDate}"></h4>
+                    </div>
+                    <div>
+                        <p>Pick-up location</p>
+                        <h4 th:text="${booking.pickUpLocation}"></h4>
+                    </div>
+                    <div>
+                        <p>Time</p>
+                        <h4 th:text="${booking.pickUpTime}"></h4>
+                    </div>
+                    <div>
+                        <p>Drop-off location</p>
+                        <h4 th:text="${booking.dropOffLocation}"></h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="info_heading">Accessories</h3>
+                <div class="info_cont block">
+                    <div class="flex-line" th:each="extra : ${extras}">
+                        <div>
+                            <input type="checkbox" th:checked="${#lists.contains(booking.extras, extra)}" value="bike rack">
+                            <label th:text="${extra.type}"></label>
+                        </div>
+                        <h4 th:text="${extra.price}"></h4>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3 class="info_heading">Price</h3>
+                <div>
+                    <div class="flex-line">
+                        <p>Price/night</p>
+                        <h4 th:text="${booking.motorhome.basePrice}"></h4>
+                    </div>
+                    <div class="flex-line">
+                        <p>Accessories</p>
+                        <h4 th:text="${extrasTotal}"></h4>
+                    </div>
+                    <div class="flex-line">
+                        <p>Pick-up fee</p>
+                        <input type="text"  placeholder="€"/>
+                    </div>
+                    <div class="flex-line">
+                        <p>Drop-off fee</p>
+                        <input type="text"  placeholder="€"/>
+                    </div>
+                    <div class="flex-line">
+                        <h3>Total</h3>
+                        <h4 th:text="${booking.totalPrice}"></h4>
+                    </div>
+                </div>
+                
+            </div>
+        </form>
+        <div>
+            <button>Save</button>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

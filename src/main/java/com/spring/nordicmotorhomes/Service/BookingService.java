@@ -188,7 +188,7 @@ public class BookingService {
     // Get sorted active bookings - it's easier to use sql for sorting
     public List<Booking> getSortedActiveBookings() {
         List<Booking> bookings = new ArrayList<>();
-        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "end_date"));
+        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "endDate"));
         List<Booking> activeBookings = getActiveBookings();
 
         for(Booking booking : allSortedBookings) {
@@ -232,7 +232,7 @@ public class BookingService {
     // Get sorted future bookings
     public List<Booking> getSortedFutureBookings() {
         List<Booking> bookings = new ArrayList<>();
-        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "start_date"));
+        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "startDate"));
         List<Booking> futureBookings = getFutureBookings();
 
         for(Booking booking : allSortedBookings) {
@@ -368,7 +368,7 @@ public class BookingService {
     // Get total price - calculates and returns total price of the booking
     public double getTotalPrice(Motorhome motorhome, LocalDate start, LocalDate end, Set<Extra> extras) {
         int days = (int) ChronoUnit.DAYS.between(start, end);
-        double seasonPercentage = seasonService.getSeason(start).getPercentage();
+        double seasonPercentage = seasonService.getSeason(start).getPercentage() + 1;
         return ((motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras)) * seasonPercentage;
     }
 
@@ -415,6 +415,8 @@ public class BookingService {
         return booking;
     }
 
-
-
+    // Get booking by id
+    public Booking getBookingById(long id) {
+        return bookingRepository.findById(id).orElse(null);
+    }
 }
