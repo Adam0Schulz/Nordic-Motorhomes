@@ -624,20 +624,20 @@ SET next_val = @next + 1;
 
 /* ----------- booking_extras -----------*/
 
-INSERT INTO booking_extras (bookingid, extraid)
+INSERT INTO booking_extras (booking_id, extra_id)
 VALUES (10, 1 );
 
 
-INSERT INTO booking_extras (bookingid, extraid)
+INSERT INTO booking_extras (booking_id, extra_id)
 VALUES (15, 2 );
 
-INSERT INTO booking_extras (bookingid, extraid)
+INSERT INTO booking_extras (booking_id, extra_id)
 VALUES (16, 3 );
 
-INSERT INTO booking_extras (bookingid, extraid)
+INSERT INTO booking_extras (booking_id, extra_id)
 VALUES (21, 4 );
 
-INSERT INTO booking_extras (bookingid, extraid)
+INSERT INTO booking_extras (booking_id, extra_id)
 VALUES (24, 1 );
 
 
