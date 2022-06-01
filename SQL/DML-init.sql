@@ -343,7 +343,7 @@ UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
-INSERT INTO employees (id, first_name, last_name, phone_number, driving_licence_number)
+INSERT INTO customer (id, first_name, last_name, phone_number, driving_licence_number)
 VALUES (@next, 'Andrzej', 'Nowicki', 53188438, '78066');
 UPDATE customer_sequence
 SET next_val = @next + 1;
