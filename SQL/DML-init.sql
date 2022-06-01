@@ -467,177 +467,177 @@ SET next_val = @next + 1;
 /* ----------- Bookings -----------*/
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-01-05','083000', '2022-01-15',1,1, 'Copenhagen Airport', 'Korsdalsvej 90', 2500, 0.7);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-01-06','103000', '2022-01-20',2,2, 'Copenhagen Airport', 'Vognporten 14', 2300, 0.9);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-03','120000', '2022-02-13',3,3, 'Ishøj Strand Camping', 'Ishøj Strand Camping', 2100, 0.75);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-04','120000', '2022-02-10',4,4, 'Damhusengen', 'Nordic Motorhomes Office', 1900, 0.55);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-08','080000', '2022-02-20',5,1, 'Brøndby Ny Rideklub', 'Nordic Motorhomes Office', 2800 , 0.55);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-09','083000', '2022-02-30',6,3, 'Brøndby Ny Rideklub', 'Nordic Motorhomes Office', 3500, 0.25);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-11','083000', '2022-02-15',7,2, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 1900, 0.35);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-17','080000', '2022-02-30',8,4, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 2750, 0.95);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-22','083000', '2022-02-28',9,4, 'Copenhagen Airport', 'Nordic Motorhomes Office', 3250, 0.2);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-02-28','123000', '2022-03-20',10,1, 'Copenhagen Airport', 'Geels Skov', 6700, 0.15);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-03-12','080000', '2022-03-20',11,3, 'Øster Allé 60', 'Raadvad', 4510, 0.38);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-03-16','090000', '2022-03-29',12,2, 'Øster Allé 60', 'Ishøj Strand Camping', 3720, 0.35);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-04-01','100000', '2022-04-15',13,1, 'Vestbad', 'Vestskoven', 2640, 0.93);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-04-03','110000', '2022-04-15',14,2, 'Egeparken', 'Egelundsparken', 3140, 0.71);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-04-06','120000', '2022-04-12',15,4, 'Copenhagen Airport', 'Hareskoven', 4210, 0.95);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-01','120000', '2022-05-28',16,1, 'Copenhagen Airport', 'Hareskovhytten', 6220, 0.4);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-05','060000', '2022-06-01',17,1, 'Salvadparken', 'Bumlebjerg', 4530, 0.55);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-06','093000', '2022-05-30',19,2, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 7720, 0.6);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-11','083000', '2022-05-24',20,3, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 2910, 0.91);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-20','140000', '2022-06-16',21,4, 'Copenhagen Airport', 'Sophienholm', 7100, 0.72);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-05-25','120000', '2022-06-12',22,2, 'Copenhagen Airport', 'Hareskoven', 3830, 0.66);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-06-06','073000', '2022-06-16',23,1, 'Keld Tørnqvist', 'Baunesletten Hundeskov', 4230, 0.8);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-06-11','113000', '2022-06-30',24,1, 'Edith Rodes Vej 6', 'Nordic Motorhomes Office', 8700, 0.81);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-06-12','153000', '2022-06-20',25,3, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 6100, 0.3);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-06-18','073000', '2022-07-10',26,4, 'Copenhagen Airport', 'Judithsvej 7', 9100, 0.28);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
-INSERT INTO bookings (id, customer_id, start_date, pick_up_time, end_date, motorhome_id, employee_id, pick_up_location, drop_off_location, total_price, fuel_level)
+INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
 VALUES (@next,1 ,'2022-06-18','123000', '2022-07-20',27,4, 'Copenhagen Airport', 'Ishøj Strand Camping', 6700, 0.1);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
 /* ----------- booking_extras -----------*/
 
-INSERT INTO booking_extras (booking_id, extra_id)
+INSERT INTO booking_extras (bookingid, extraid)
 VALUES (10, 1 );
 
 
-INSERT INTO booking_extras (booking_id, extra_id)
+INSERT INTO booking_extras (bookingid, extraid)
 VALUES (15, 2 );
 
-INSERT INTO booking_extras (booking_id, extra_id)
+INSERT INTO booking_extras (bookingid, extraid)
 VALUES (16, 3 );
 
-INSERT INTO booking_extras (booking_id, extra_id)
+INSERT INTO booking_extras (bookingid, extraid)
 VALUES (21, 4 );
 
-INSERT INTO booking_extras (booking_id, extra_id)
+INSERT INTO booking_extras (bookingid, extraid)
 VALUES (24, 1 );
 
 
@@ -697,104 +697,104 @@ SET next_val = @next + 1;
 /* ----------- past_bookings -----------*/
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,1);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,2);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,3);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,4);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,5);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,6);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,7);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,8);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,9);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,11);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,12);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,13);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,14);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,15);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,17);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,18);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM past_booking_sequence;
-INSERT INTO past_bookings (id, booking_id)
+INSERT INTO past_bookings (id, bookingid)
 VALUES (@next,20);
 UPDATE past_booking_sequence
 SET next_val = @next + 1;
@@ -803,19 +803,19 @@ SET next_val = @next + 1;
 
 
 SELECT next_val INTO @next FROM active_booking_sequence;
-INSERT INTO active_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,21);
 UPDATE active_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM active_booking_sequence;
-INSERT INTO active_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,22);
 UPDATE active_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM active_booking_sequence;
-INSERT INTO active_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,23);
 UPDATE active_booking_sequence
 SET next_val = @next + 1;
@@ -823,25 +823,25 @@ SET next_val = @next + 1;
 /* ----------- future_bookings -----------*/
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO future_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,24);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO future_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,25);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO future_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,26);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO future_bookings (id, booking_id)
+INSERT INTO active_bookings (id, bookingid)
 VALUES (@next,27);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
@@ -849,19 +849,19 @@ SET next_val = @next + 1;
 /* ----------- cancelled_bookings -----------*/
 
 SELECT next_val INTO @next FROM cancelled_booking_sequence;
-INSERT INTO cancelled_bookings (id, booking_id, fee_id)
+INSERT INTO cancelled_bookings (id, bookingid, feeid)
 VALUES (@next,10,1);
 UPDATE cancelled_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancelled_booking_sequence;
-INSERT INTO cancelled_bookings (id, booking_id, fee_id)
+INSERT INTO cancelled_bookings (id, bookingid, feeid)
 VALUES (@next,16,2);
 UPDATE cancelled_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancelled_booking_sequence;
-INSERT INTO cancelled_bookings (id, booking_id, fee_id)
+INSERT INTO cancelled_bookings (id, bookingid, feeid)
 VALUES (@next,19,4);
 UPDATE cancelled_booking_sequence
 SET next_val = @next + 1;
@@ -869,13 +869,13 @@ SET next_val = @next + 1;
 /* ----------- motorhomes-to-chcek -----------*/
 
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
-INSERT INTO motorhomes_to_check (id, motorhome_id)
+INSERT INTO motorhomes_to_check (id, motorhomeid)
 VALUES (@next,17);
 UPDATE motorhome_to_check_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
-INSERT INTO motorhomes_to_check (id, motorhome_id)
+INSERT INTO motorhomes_to_check (id, motorhomeid)
 VALUES (@next,18;
 UPDATE motorhome_to_check_sequence
 SET next_val = @next + 1;
@@ -883,13 +883,13 @@ SET next_val = @next + 1;
 /* ----------- motorhomes-to-clean -----------*/
 
 SELECT next_val INTO @next FROM motorhomes_to_clean_sequence;
-INSERT INTO motorhomes_to_clean (id, motorhome_id)
+INSERT INTO motorhomes_to_clean (id, motorhomeid)
 VALUES (@next,16);
 UPDATE motorhome_to_clean_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM motorhomes_to_clean_sequence;
-INSERT INTO motorhomes_to_clean (id, motorhome_id)
+INSERT INTO motorhomes_to_clean (id, motorhomeid)
 VALUES (@next,20);
 UPDATE motorhome_to_clean_sequence
 SET next_val = @next + 1;
