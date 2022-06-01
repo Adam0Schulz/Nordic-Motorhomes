@@ -2,8 +2,14 @@
 
 * {
     /* Variables */
+<<<<<<< HEAD
     --background-color: #576745;
     --container-background: #f9f9f9;
+=======
+    --background-color: #576746;
+
+    --container-background: #FAFAFA;
+>>>>>>> c4686ca8a02e81b637cb8c6c0af4d61feb7a3249
 
     --wrapper-width: 1100px;
 
@@ -17,14 +23,20 @@
 body {
     background: var(--background-color);
 }
-
+.top-logo{
+    margin:1rem auto 0 auto;
+    max-height:100%;
+}
+.logo-img{
+    max-height:7rem;
+}
 .wrapper {
     max-width: var(--wrapper-width);
     height: 100vh;
-    margin: 20px auto 0 auto;
+    margin: 0 auto 0 auto;
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    gap:1.5rem;
 }
 
 .logo {
@@ -38,7 +50,7 @@ body {
     max-height: 150vh;
     padding: 3.75rem;
     background: var(--container-background);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     display: flex;
     align-items: center;
@@ -92,7 +104,7 @@ label {
 input {
     background: #FFFFFF;
     border: 1px solid #D0D5DD;
-    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 8px;
     width: 22.5rem;
     height: 2.75rem;
@@ -103,9 +115,9 @@ input {
 .login-btn {
     width: 22.5rem;
     height: 2.75rem;
-    background: #939878;
-    border: 1px solid #939878;
-    box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+    background: #A8C06C;
+    border: 1px solid #A8C06C;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
     border-radius: 0.5rem;
     font-weight: 500;
     font-size: 1rem;
@@ -117,7 +129,8 @@ input {
 }
 
 .login-btn:hover {
-    background: #5E6748;
+    background: #939878;
+    border: 1px solid #939878;
 }
 
 .error {
@@ -141,7 +154,7 @@ input.error-active {
     }
 
     input,button {
-        width: 19rem ;
+        width: 22.5rem ;
     }
 
     .container::before {
@@ -183,9 +196,8 @@ input.error-active {
     }
 
     input, button {
-        width: 15.5rem;
+        width: 22.5rem;
     }
-
 
   }
 
