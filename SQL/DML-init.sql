@@ -16,49 +16,49 @@ SET next_val = @next + 1;
 /* ----------- Employees -----------*/
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1122336655, 'a@s.dk', 'Adam', 'Schulz', '1', 52688455, 'sales assistant');
+VALUES (@next, 36655, 'a@s.dk', 'Adam', 'Schulz', '1', 52688455, 'sales assistant');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1702948665, 's@k.dk', 'Simona', 'Kardel', '1', 8968846, 'sales assistant');
+VALUES (@next, 48665, 's@k.dk', 'Simona', 'Kardel', '1', 8968846, 'sales assistant');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1003284, 'e@a.dk', 'Emie', 'Abalora', '1', 64738393, 'sales assistant');
+VALUES (@next, 83284, 'e@a.dk', 'Emie', 'Abalora', '1', 64738393, 'sales assistant');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1010024567, 'w@w.dk', 'Wanesa', 'Wintmiller', '1', 74839454, 'sales assistant');
+VALUES (@next, 16567, 'w@w.dk', 'Wanesa', 'Wintmiller', '1', 74839454, 'sales assistant');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1902902345, 'jonasp@gmail.com', 'Jonas', 'Petersen', '1', 83945678, 'cleaning staff');
+VALUES (@next, 19345, 'jonasp@gmail.com', 'Jonas', 'Petersen', '1', 83945678, 'cleaning staff');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 2903882345, 'mariabryde@gmail.com', 'Maria', 'Bryde', '1', 64839454, 'cleaning staff');
+VALUES (@next, 29345, 'mariabryde@gmail.com', 'Maria', 'Bryde', '1', 64839454, 'cleaning staff');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 2207903457, 'thomaswilkinson@gmail.com', 'Thomas', 'Wilkinson', '1', 83945848, 'bookkeeper');
+VALUES (@next, 22457, 'thomaswilkinson@gmail.com', 'Thomas', 'Wilkinson', '1', 83945848, 'bookkeeper');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM employee_sequence;
 INSERT INTO employees (id, cpr, email, first_name, last_name, password, phone_number, title)
-VALUES (@next, 1904803456, 'dbeaver@gmail.com', 'Douglas', 'Beaver', '1', 748475432, 'owner');
+VALUES (@next, 19456, 'dbeaver@gmail.com', 'Douglas', 'Beaver', '1', 748475432, 'owner');
 UPDATE employee_sequence
 SET next_val = @next + 1;
 
