@@ -647,12 +647,6 @@ VALUES (24, 1 );
 /* ----------- seasons -----------*/
 
 SELECT next_val INTO @next FROM season_sequence;
-INSERT INTO seasons (id, name, start_date, end_date, percentage, minimum)
-VALUES (@next, 'spring','2022-03-01','2022-05-31', 50, 180);
-UPDATE season_sequence
-SET next_val = @next + 1;
-
-SELECT next_val INTO @next FROM season_sequence;
 INSERT INTO seasons (id, name, start_month, end_month, percentage)
 VALUES (@next, 'peak',6,8, 0.6);
 UPDATE season_sequence
@@ -825,26 +819,20 @@ SET next_val = @next + 1;
 /* ----------- future_bookings -----------*/
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO active_bookings (id, bookingid)
+INSERT INTO future_bookings (id, bookingid)
 VALUES (@next,24);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO active_bookings (id, bookingid)
+INSERT INTO future_bookings (id, bookingid)
 VALUES (@next,25);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO active_bookings (id, bookingid)
+INSERT INTO future_bookings (id, bookingid)
 VALUES (@next,26);
-UPDATE future_booking_sequence
-SET next_val = @next + 1;
-
-SELECT next_val INTO @next FROM future_booking_sequence;
-INSERT INTO active_bookings (id, bookingid)
-VALUES (@next,27);
 UPDATE future_booking_sequence
 SET next_val = @next + 1;
 
@@ -873,24 +861,24 @@ SET next_val = @next + 1;
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
 INSERT INTO motorhomes_to_check (id, motorhomeid)
 VALUES (@next,17);
-UPDATE motorhome_to_check_sequence
+UPDATE motorhomes_to_check_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM motorhomes_to_check_sequence;
 INSERT INTO motorhomes_to_check (id, motorhomeid)
-VALUES (@next,18;
-UPDATE motorhome_to_check_sequence
+VALUES (@next,18);
+UPDATE motorhomes_to_check_sequence
 SET next_val = @next + 1;
 
 /* ----------- motorhomes-to-clean -----------*/
 
-SELECT next_val INTO @next FROM motorhomes_to_clean_sequence;
+SELECT next_val INTO @next FROM motorhome_to_clean_sequence;
 INSERT INTO motorhomes_to_clean (id, motorhomeid)
 VALUES (@next,16);
 UPDATE motorhome_to_clean_sequence
 SET next_val = @next + 1;
 
-SELECT next_val INTO @next FROM motorhomes_to_clean_sequence;
+SELECT next_val INTO @next FROM motorhome_to_clean_sequence;
 INSERT INTO motorhomes_to_clean (id, motorhomeid)
 VALUES (@next,20);
 UPDATE motorhome_to_clean_sequence
