@@ -18,23 +18,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+// Adam Simona
 @Controller
 public class SAController {
-
-    /*@Autowired
-    private EmployeeService employeeService;
-
-    @Autowired
-    private MotorhomeService motorhomeService;
-
-
-
-    @Autowired
-    private SeasonService seasonService;
-
-    @Autowired
-    private SystemVariableService systemVariableService;*/
 
     @Autowired
     private BookingService bookingService;

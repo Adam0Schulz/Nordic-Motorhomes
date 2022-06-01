@@ -1,3 +1,5 @@
+/*----- Emie Wanesa-----*/
+
 DROP DATABASE IF EXISTS Nordic_Motorhomes;
 CREATE DATABASE IF NOT EXISTS Nordic_Motorhomes;
 
@@ -27,7 +29,7 @@ CREATE TABLE IF NOT EXISTS customers (
     last_name varchar(255),
     phone_number int(12),
     email varchar(400),
-    driving_licence_number varchar(12)
+    driving_licence_number int
 );
 
 CREATE TABLE IF NOT EXISTS employees (

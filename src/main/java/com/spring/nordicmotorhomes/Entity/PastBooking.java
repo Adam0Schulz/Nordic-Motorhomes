@@ -1,7 +1,7 @@
 package com.spring.nordicmotorhomes.Entity;
 import lombok.*;
 import javax.persistence.*;
-
+// Wanesa
 @Entity
 @Getter
 @Setter

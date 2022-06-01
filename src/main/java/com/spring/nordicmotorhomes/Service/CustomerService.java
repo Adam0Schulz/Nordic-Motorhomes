@@ -4,7 +4,7 @@ import com.spring.nordicmotorhomes.Entity.Customer;
 import com.spring.nordicmotorhomes.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+// Adam
 @Service
 public class CustomerService {
 

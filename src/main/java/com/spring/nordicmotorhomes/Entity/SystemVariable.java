@@ -2,7 +2,7 @@ package com.spring.nordicmotorhomes.Entity;
 
 import lombok.*;
 import javax.persistence.*;
-
+// Adam
 @Entity
 @Getter
 @Setter

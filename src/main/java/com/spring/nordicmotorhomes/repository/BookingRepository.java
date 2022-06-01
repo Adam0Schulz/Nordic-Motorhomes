@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
-
+// Wanesa
 @Repository
 public interface BookingRepository extends JpaRepository<Booking,Long> {
     List<Booking> findByStartDate(Date date);
