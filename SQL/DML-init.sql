@@ -500,7 +500,7 @@ SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
 INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
-VALUES (@next,1 ,'2022-02-09','083000', '2022-02-30',6,3, 'Brøndby Ny Rideklub', 'Nordic Motorhomes Office', 3500, 0.25);
+VALUES (@next,1 ,'2022-02-09','083000','2022-02-15',6,3, 'Brøndby Ny Rideklub', 'Nordic Motorhomes Office', 3500, 0.25);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
@@ -512,7 +512,7 @@ SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM booking_sequence;
 INSERT INTO bookings (id, customerid, start_date, pick_up_time, end_date, motorhomeid, employeeid, pick_up_location, drop_off_location, total_price, fuel_level)
-VALUES (@next,1 ,'2022-02-17','080000', '2022-02-30',8,4, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 2750, 0.95);
+VALUES (@next,1 ,'2022-02-17','080000', '2022-02-20',8,4, 'Nordic Motorhomes Office', 'Nordic Motorhomes Office', 2750, 0.95);
 UPDATE booking_sequence
 SET next_val = @next + 1;
 
