@@ -3,26 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Dashboard</title>
+<<<<<<< HEAD
+    <link rel="stylesheet" href="/css/sa/index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $('#logout-btn').click(() => {
+                window.location.replace('/logout')
+            })
+
+            $('.booking_table_row').click(function () {
+                window.location.replace('/dashboard/sa/booking/' + $(this).attr('id'))
+            })
+
+            $('#activeBookings, #pastBookings, #upcomingBookings').click(function() {
+                window.location.replace('/dashboard/sa/' + $(this).attr('id'))
+            })
+        })
+
+    </script>
+=======
     <link rel="stylesheet" href="/static/css/sa/sa.css">
     <link rel="icon" type="image/x-icon" href="/static/images/fav.ico">
 
 
+>>>>>>> c4686ca8a02e81b637cb8c6c0af4d61feb7a3249
 </head>
 <body>
 <div class="container">
-    <div class="top">
-        <img class="logo" src="/static/images/logo-white.png" alt="logo">
+    <div class="top" th:fragment="top-bar">
+        <img class="logo" src="/images/logo-white.png" alt="logo">
         <div class="top-buttons">
-            <img class="avatar" src="/static/images/Avatar.png" alt="avatar">
-            <img class="avatar" src="/static/images/Group%20253.png" alt="log-out">
+            <img class="avatar" src="/images/Avatar.png" alt="avatar">
+            <img id="logout-btn" class="avatar" src="/images/Group%20253.png" alt="log-out">
         </div>
 
     </div>
-    <div class="side-bar">
+    <div class="side-bar" th:fragment="side-bar">
         <div class="side-buttons">
-            <a href="dashboard/sa"><img class="booking-img" src="/static/images/calendar.png" alt="bookings-icon"></a>
-            <a href="dashboard/sa/motorhomes"><img src="/static/images/truck.png" alt="motorhomes-icon"></a>
-            <a href="dashboard/sa/locations"><img src="/static/images/map-pin.png" alt="locations-icon"></a>
+            <a href="/dashboard/sa"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
+            <a href="/dashboard/sa/motorhomes"><img src="/images/truck.png" alt="motorhomes-icon"></a>
+            <a href="/dashboard/sa/locations"><img src="/images/map-pin.png" alt="locations-icon"></a>
         </div>
     </div>
     <div class="main-content">
@@ -30,151 +53,149 @@
             <h2>New Booking</h2>
 
             <div class="step-buttons">
-                <div class="step-one"></div>
-                <div class="step-two"></div>
-                <div class="step-three"></div>
+                <div th:class="${firstStep} != null ? 'step-div-active' : 'step-div'"></div>
+                <div th:class="${secondStep} != null ? 'step-div-active' : 'step-div'" class="step-div"></div>
+                <div th:class="${thirdStep} != null ? 'step-div-active' : 'step-div'" class="step-div"></div>
             </div>
-            <div class="first-step">
+            <form th:attr="action=${addBookingAction}" method="post">
+            <div th:if="${firstStep} != null" class="first-step" >
                 <div class="left-side">
-                    <label for="">First Name</label>
-                    <input type="text" name="" id="" required>
-                    <label for="">CPR Number</label>
-                    <input type="text" name="" id="" required>
+                    <label>First Name</label>
+                    <input type="text" name="first" required>
+                    <label>CPR Number</label>
+                    <input type="number" name="cpr" required>
 
-                    <label  for="">Start Date</label>
-                    <input class="date" type="date" required>
+                    <label>Start Date</label>
+                    <input class="date" type="date" name="start-date" required>
                 </div>
                 <div class="right-side">
-                    <label for="">Last Name</label>
-                    <input type="text" name="" id="" required>
+                    <label>Last Name</label>
+                    <input type="text" name="last" required>
 
-                    <label for="">Phone Number</label>
-                    <input type="text" name="" id="" required>
+                    <label>Phone Number</label>
+                    <input type="number" name="phone" required>
 
-                    <label for="">End Date</label>
-                    <input class="date" type="date" required>
-                    <button class="btn-next">
-                        <input class="submit-button" type="submit" value="Next  >">
+                    <label>End Date</label>
+                    <input class="date" type="date" name="end-date" required>
 
-                    </button>
+                    <input class="submit-button" type="submit" name="first-step" value="Next  >">
+
+
                 </div>
 
 
 
             </div>
+            <div th:if="${secondStep} != null" class="second-step">
 
+                <div class="left-side">
+                    <label>Motorhome</label>
+                    <select name="motorhome-id" class="date">
+                        <th:block th:each="motorhome : ${motorhomes}">
+                            <option th:text="${motorhome.brand} + ' - ' + ${motorhome.model} + ' - ' + ${motorhome.regNumber}" th:value="${motorhome.ID}"></option>
+                        </th:block>
+                    </select>
+                    <label>Extras</label>
+                    <select name="extras-ids" class="date" multiple>
+                        <th:block th:each="extra : ${extras}">
+                            <option th:text="${extra.type} + ' - ' + ${extra.price} + '€'" th:value="${extra.ID}"></option>
+                        </th:block>
+                    </select>
+
+                    <input class="submit-button" type="submit" name="second-step" value="Next >" />
+                </div>
+                <div class="right-side">
+                    <input type="hidden" name="first" th:value="${first}" />
+                    <input type="hidden" name="last" th:value="${last}" />
+                    <input type="hidden" name="cpr" th:value="${cpr}" />
+                    <input type="hidden" name="phone" th:value="${phone}" />
+                    <input type="hidden" name="start-date" th:value="${startDate}" />
+                    <input type="hidden" name="end-date" th:value="${endDate}" />
+                </div>
+            </div>
+            <div th:if="${thirdStep} != null" class="third-step">
+                <div class="left-side">
+                    <label>Pick-up location</label>
+                    <textarea name="pickup-location"></textarea>
+                    <label>Drop-off location</label>
+                    <textarea name="dropoff-location"></textarea>
+                    <label>Time</label>
+                    <input class="date" type="time" name="pickup-time"/>
+                    <input class="submit-button" type="submit" name="third-step" value="Add booking">
+                </div>
+                <div class="right-side">
+                    <input type="hidden" name="first" th:value="${first}" />
+                    <input type="hidden" name="last" th:value="${last}" />
+                    <input type="hidden" name="cpr" th:value="${cpr}" />
+                    <input type="hidden" name="phone" th:value="${phone}" />
+                    <input type="hidden" name="start-date" th:value="${startDate}" />
+                    <input type="hidden" name="end-date" th:value="${endDate}" />
+                    <input type="hidden" name="motorhome-id" th:value="${motorhomeID}" />
+                    <input th:each="extraID : ${extrasIDs}" type="hidden" name="extras-ids" th:value="${extraID}" />
+
+                </div>
+            </div>
+            </form>
 
         </div>
         <div class="graphic">
-            <img src="/static/images/Illustration.png" alt="illustration">
+            <img src="/images/Illustration.png" alt="illustration">
         </div>
 
         <div class="active-booking">
             <h2>Active Bookings</h2>
 
             <table>
-                <thead>
+                <thead id="activeBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><a href=""><img src="/static/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                <th><img src="/images/arrow-up-right.png" alt="arrow-icon"></th>
                 </thead>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
+                <th:block th:each="booking : ${activeBookings}">
+                <tr th:attr="id=${booking.ID}" class="booking_table_row clickable">
+                    <td th:text="${booking.ID}"></td>
+                    <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
+                    <td><img src="/images/more-horizontal.png" alt="dots-icon"></td>
                 </tr>
-
-                <tr class="last-row">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                </th:block>
             </table>
         </div>
         <div class="past-bookings">
             <h2>Past Bookings</h2>
             <table>
-                <thead>
+                <thead id="pastBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><a href=""><img src="/static/images/arrow-up-right.png" alt="arrow-icon"></a></th>
+                <th><img src="/images/arrow-up-right.png" alt="arrow-icon"></th>
                 </thead>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
+                <th:block th:each="booking : ${pastBookings}">
+                <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" >
+                    <td th:text="${booking.ID}"></td>
+                    <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
+                    <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
                 </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr class="last-row"></tr>
+                </th:block>
 
             </table>
         </div>
         <div class="graphic2">
-            <img src="/static/images/Online%20calendar-amico%201%20(1).png" alt="illustration">
+            <img src="/images/Online%20calendar-amico%201%20(1).png" alt="illustration">
         </div>
         <div class="upcoming-bookings">
             <h2>Upcoming Bookings</h2>
             <table>
-                <thead>
+                <thead id="upcomingBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><a href=""><img src="/static/images/arrow-up-right.png"alt="arrow-icon"></a></th>
+                <th><img src="/images/arrow-up-right.png"alt="arrow-icon"></th>
                 </thead>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
+                <th:block th:each="booking : ${futureBookings}">
+                <tr th:attr="id=${booking.ID}" class="booking_table_row clickable">
+                    <td th:text="${booking.ID}"></td>
+                    <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
+                    <td><a href=""><img src="/images/more-horizontal.png" alt="dots-icon"></a></td>
                 </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr>
-                    <td>23456</td>
-                    <td>Simona Tingleff Kardel</td>
-                    <td><a href=""><img src="/static/images/more-horizontal.png" alt="dots-icon"></a></td>
-                </tr>
-                <tr class="last-row"></tr>
+                </th:block>
 
             </table>
         </div>

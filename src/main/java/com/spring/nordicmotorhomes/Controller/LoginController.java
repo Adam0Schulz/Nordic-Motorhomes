@@ -32,4 +32,10 @@ public class LoginController {
         return "redirect:/dashboard";
     }
 
+    @GetMapping("/logout")
+    public String logout() {
+        EmployeeService.setCurrentEmp(null);
+        return "redirect:/login";
+    }
+
 }

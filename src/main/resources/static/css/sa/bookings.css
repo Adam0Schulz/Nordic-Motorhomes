@@ -16,8 +16,14 @@
     color: #5A5757;
 }
 
-body {
-    background: rgba(87, 103, 70, 0.75);
+#popup-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(87, 103, 69, 0.5);
 }
 
 .pop-up {
@@ -29,42 +35,53 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 25px;
+    z-index: 100;
+    padding: 2em;
+}
+
+.clickable:hover {
+    background-color: lightgray;
+    cursor: pointer;
 }
 
 .close-btn {
-    float: right;
     margin-top: 1rem;
+    max-width: 1rem;
+    max-height: 1rem;
 }
 
-h2 {
-    padding: 1rem 2rem 0 2rem;
+.pop-up_header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+}
+
+.popup_heading {
+    padding: 1rem 0 2rem 0;
     font-weight: 500;
     font-size: 30px;
     line-height: 38px;
     color: #302C2C;
     }
 
-table {
-
-    
+.popup_table {
     border-radius: 25px;
     border-collapse: collapse;
-    margin: 2rem;
     overflow: hidden;
 }
 
-thead {
+.popup_table thead {
     background: #ECEEE0;
     border-radius: 25px;
     text-align: left;
  
 }
 
-tr {
+.popup_table tr {
     height: 3.5rem;
 }
 
-th {
+.popup_table th {
 font-weight: 500;
 font-size: 14px;
 line-height: 20px;
@@ -73,7 +90,7 @@ padding: 1rem 0  0.5rem 1.5rem;
 }
 
 
-td{
+.popup_table td{
     font-size: 0.875rem;
     padding: 1rem 0  0.5rem 1.5rem;
     border-bottom: 1px solid #D8D8DB;
@@ -84,7 +101,7 @@ td{
     height:1rem;
 }
 
-a img {
+.pop-up a img {
     width: 18px;
     height: 18px;
     margin-right: 1rem;

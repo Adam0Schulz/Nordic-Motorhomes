@@ -26,7 +26,7 @@ public class Season {
 
     //  Other Attributes
     private String name;
-    private Date startDate;
-    private Date endDate;
+    private int startMonth;
+    private int endMonth;
     private double percentage;
 }

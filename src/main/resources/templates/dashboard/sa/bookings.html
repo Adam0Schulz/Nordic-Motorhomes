@@ -1,0 +1,68 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${header}"></title>
+    <link rel="stylesheet" href="/css/sa/bookings.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $('.booking_table_row').click(function () {
+                window.location.replace('/dashboard/sa/booking/' + $(this).attr('id'))
+            })
+
+            $('#close-popup-btn').click(function() {
+                window.location.replace('/dashboard/sa')
+            })
+        })
+    </script>
+</head>
+<body id="popup-content">
+    <div class="pop-up">
+        <div class="pop-up_header">
+            <img id="close-popup-btn" class="close-btn" src="/images/x.png" alt="close button" />
+            <h2 class="popup_heading" th:text="${header}"></h2>
+        </div>
+        <div class="table-container">
+            <table class="popup_table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Start-date</th>
+                    <th>End-date</th>
+                    <th class="hidden">Motorhome</th>
+                    <th class="hidden">Reg. number</th>
+                    <th>Pick-up location</th>
+                    <th>Drop-off location</th>
+                    <th class="hidden">Total</th>
+                    <th></th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" th:each="booking : ${bookings}">
+                    <td th:text="${booking.ID}"></td>
+                    <td th:text="${booking.customer.firstName} + ' ' + ${booking.customer.lastName}"></td>
+                    <td th:text="${booking.startDate}"></td>
+                    <td th:text="${booking.endDate}"></td>
+                    <td th:text="${booking.motorhome.brand} + ' - ' + ${booking.motorhome.model}" class="hidden"></td>
+                    <td th:text="${booking.motorhome.regNumber}" class="hidden"></td>
+                    <td th:text="${booking.pickUpLocation}"></td>
+                    <td th:text="${booking.dropOffLocation}"></td>
+                    <td th:text="${booking.totalPrice}" class="hidden"></td>
+                    <td class="hidden"><a href=""><img class="icon" src="/images/more-horizontal.png" alt="edit-icon"></a></td>
+
+                </tr>
+            </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</body>
+</html>
+        

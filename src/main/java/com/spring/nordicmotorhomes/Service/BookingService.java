@@ -48,6 +48,8 @@ public class BookingService {
 
     // Create booking - creates and saves booking
     public Booking createBooking( Set<Extra> extras, Customer customer, Motorhome motorhome, Employee employee, Date start, Date end, String pickUp, Time pickUpTime, String dropOff, double total) {
+
+        // Creating new booking
         Booking newBooking = Booking.builder()
                 .extras(extras)
                 .customer(customer)
@@ -61,7 +63,13 @@ public class BookingService {
                 .totalPrice(total)
                 .build();
 
+        // Creating future booking
+        FutureBooking futureBooking = FutureBooking.builder()
+                .booking(newBooking)
+                .build();
+
         // saving data to database
+        newBooking.setFutureBooking(futureBooking);
         bookingRepository.save(newBooking);
         return newBooking;
     }
@@ -188,7 +196,7 @@ public class BookingService {
     // Get sorted active bookings - it's easier to use sql for sorting
     public List<Booking> getSortedActiveBookings() {
         List<Booking> bookings = new ArrayList<>();
-        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "end_date"));
+        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "endDate"));
         List<Booking> activeBookings = getActiveBookings();
 
         for(Booking booking : allSortedBookings) {
@@ -232,7 +240,7 @@ public class BookingService {
     // Get sorted future bookings
     public List<Booking> getSortedFutureBookings() {
         List<Booking> bookings = new ArrayList<>();
-        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "start_date"));
+        List<Booking> allSortedBookings = getAllBookings(Sort.by(Sort.Direction.ASC, "startDate"));
         List<Booking> futureBookings = getFutureBookings();
 
         for(Booking booking : allSortedBookings) {
@@ -368,10 +376,9 @@ public class BookingService {
     // Get total price - calculates and returns total price of the booking
     public double getTotalPrice(Motorhome motorhome, LocalDate start, LocalDate end, Set<Extra> extras) {
         int days = (int) ChronoUnit.DAYS.between(start, end);
-        double seasonPercentage = seasonService.getSeason(start).getPercentage();
+        double seasonPercentage = seasonService.getSeason(start).getPercentage() + 1;
         return ((motorhome.getBasePrice() * days) + extraService.getExtrasTotalPrice(extras)) * seasonPercentage;
     }
-
 
     // Picked up - adds given booking to active bookings
     public Booking pickedUp(long bookingID) {
@@ -383,6 +390,7 @@ public class BookingService {
         ActiveBooking activeBooking = ActiveBooking.builder()
                 .booking(booking)
                 .build();
+        booking.setFutureBooking(null);
         booking.setActiveBooking(activeBooking);
         bookingRepository.save(booking);
 
@@ -415,6 +423,8 @@ public class BookingService {
         return booking;
     }
 
-
-
+    // Get booking by id
+    public Booking getBookingById(long id) {
+        return bookingRepository.findById(id).orElse(null);
+    }
 }

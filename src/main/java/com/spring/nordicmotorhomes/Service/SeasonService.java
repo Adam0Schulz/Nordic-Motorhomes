@@ -25,9 +25,9 @@ public class SeasonService {
         List<Season> seasons = getAllSeasons();
 
         for (Season s : seasons) {
-            LocalDate startDate = s.getStartDate().toLocalDate();
-            LocalDate endDate = s.getEndDate().toLocalDate();
-            if((startDate.isBefore(bookingStartDate) || startDate.isEqual(bookingStartDate)) && endDate.isAfter(bookingStartDate)) {
+            int startMonth = s.getStartMonth();
+            int endMonth = s.getEndMonth();
+            if((startMonth <= bookingStartDate.getMonthValue()) && endMonth > bookingStartDate.getMonthValue()) {
                 season = s;
             }
         }
@@ -37,15 +37,4 @@ public class SeasonService {
     // Get all seasons
     public List<Season> getAllSeasons() { return seasonRepository.findAll(); }
 
-    // Create season
-    public Season createSeason(Date start, Date end, String name, double percent) {
-        Season newSeason = Season.builder()
-                .startDate(start)
-                .endDate(end)
-                .name(name)
-                .percentage(percent)
-                .build();
-        seasonRepository.save(newSeason);
-        return newSeason;
-    }
 }

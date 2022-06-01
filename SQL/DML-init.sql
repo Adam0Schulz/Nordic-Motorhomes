@@ -665,20 +665,20 @@ UPDATE season_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM season_sequence;
-INSERT INTO seasons (id, name, start_date, end_date, percentage, minimum)
-VALUES (@next, 'summer','2022-06-01','2022-08-31', 80, 200);
+INSERT INTO seasons (id, name, start_month, end_month, percentage)
+VALUES (@next, 'peak',6,8, 0.6);
 UPDATE season_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM season_sequence;
-INSERT INTO seasons (id, name, start_date, end_date, percentage, minimum)
-VALUES (@next, 'autumn','2022-09-01','2022-11-30', 50, 100);
+INSERT INTO seasons (id, name, start_month, end_month, percentage)
+VALUES (@next, 'middle',9,11, 0.3);
 UPDATE season_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM season_sequence;
-INSERT INTO seasons (id, name, start_date, end_date, percentage, minimum)
-VALUES (@next, 'winter','2022-12-01','2023-02-28', 20, 150);
+INSERT INTO seasons (id, name, start_month, end_month, percentage)
+VALUES (@next, 'low',12,2, 0.0);
 UPDATE season_sequence
 SET next_val = @next + 1;
 
@@ -686,25 +686,25 @@ SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancellation_fees_sequence;
 INSERT INTO cancellation_fees (id, name, max_days_before, min_days_before, percentage, minimum)
-VALUES (@next,'fee20%', 50, 0, 20, 200);
+VALUES (@next,'fee20%', 50, 0, 0.2, 200);
 UPDATE cancellation_fees_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancellation_fees_sequence;
 INSERT INTO cancellation_fees (id, name, max_days_before, min_days_before, percentage, minimum)
-VALUES (@next,'fee50%', 15, 49, 50, 200);
+VALUES (@next,'fee50%', 15, 49, 0.5, 200);
 UPDATE cancellation_fees_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancellation_fees_sequence;
 INSERT INTO cancellation_fees (id, name, max_days_before, min_days_before, percentage, minimum)
-VALUES (@next,'fee80%' ,1, 14, 80, 200);
+VALUES (@next,'fee80%' ,1, 14, 0.8, 200);
 UPDATE cancellation_fees_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM cancellation_fees_sequence;
 INSERT INTO cancellation_fees (id, name, max_days_before, min_days_before, percentage, minimum)
-VALUES (@next,'fee95%', 0, 0, 95, 200);
+VALUES (@next,'fee95%', 0, 0, 0.95, 200);
 UPDATE cancellation_fees_sequence
 SET next_val = @next + 1;
 
