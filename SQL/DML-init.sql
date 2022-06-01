@@ -265,170 +265,170 @@ SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Tonya', 'Hudak', 5006183, '12346U21');
+VALUES (@next, 'Tonya', 'Hudak', 5006183, '12321');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Amber', 'Gardner', 90684357,'S043914');
+VALUES (@next, 'Amber', 'Gardner', 90684357,'43914');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Tonya', 'Almasi', 59639123, 'U1184271');
+VALUES (@next, 'Tonya', 'Almasi', 59639123, '84271');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Jonathon', 'Cannon', 61432306, 'S075128');
+VALUES (@next, 'Jonathon', 'Cannon', 61432306, '5128');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Kristie', 'Curtis', 61826799, '5123261');
+VALUES (@next, 'Kristie', 'Curtis', 61826799, '53261');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Karen', 'Steffan', 740416014,'J7134749');
+VALUES (@next, 'Karen', 'Steffan', 740416014,'34749');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'John', 'Hamby', 90332257, '53835678');
+VALUES (@next, 'John', 'Hamby', 90332257, '53678');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Mary', 'Baez', 970201092, 'P3778048');
+VALUES (@next, 'Mary', 'Baez', 970201092, '78048');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Wayne', 'Hargis', 5067749, '1094654');
+VALUES (@next, 'Wayne', 'Hargis', 5067749, '94654');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Tanya', 'Shepard', 52468734, 'VYG40613');
+VALUES (@next, 'Tanya', 'Shepard', 52468734, '40613');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Sawa', 'Voronov', 54578732,'4787742');
+VALUES (@next, 'Sawa', 'Voronov', 54578732,'47742');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Ksenia', 'Czarnecka', 69660142, '15MUT21502');
+VALUES (@next, 'Ksenia', 'Czarnecka', 69660142, '21502');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Jolanta', 'Kucharska', 663470396,'K5783179');
+VALUES (@next, 'Jolanta', 'Kucharska', 663470396,'83179');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO employees (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Andrzej', 'Nowicki', 53188438, '7897066');
+VALUES (@next, 'Andrzej', 'Nowicki', 53188438, '78066');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Ania', 'Walczak', 69251584, 'VC077725');
+VALUES (@next, 'Ania', 'Walczak', 69251584, '80725');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Sada', 'Robnik', 041150355, '07962765');
+VALUES (@next, 'Sada', 'Robnik', 041150355, '72765');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Huska', 'Gazdek', 0407180,'88LQH4540');
+VALUES (@next, 'Huska', 'Gazdek', 0407180,'88540');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Luba', 'Soukup', 51854156, 'GXEVPT240');
+VALUES (@next, 'Luba', 'Soukup', 51854156, '57240');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Ingrid', 'Simensen', 97732793,'SQQ52287');
+VALUES (@next, 'Ingrid', 'Simensen', 97732793,'52287');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Sibal', 'Handal', 49639182, '57DB5640');
+VALUES (@next, 'Sibal', 'Handal', 49639182, '57640');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Qatadah', 'Masih', 46546538,'9213001');
+VALUES (@next, 'Qatadah', 'Masih', 46546538,'93001');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Ruwaid', 'Bishara', 60997982, 'ZKO29205');
+VALUES (@next, 'Ruwaid', 'Bishara', 60997982, '99205');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Rafael', 'Pereira', 21973820,'12BTU358');
+VALUES (@next, 'Rafael', 'Pereira', 21973820,'18358');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Leonor', 'Ferreira', 601692716, 'SC044281E');
+VALUES (@next, 'Leonor', 'Ferreira', 601692716, '04428');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Manuela', 'Cardoso', 60182895, 'E22170591');
+VALUES (@next, 'Manuela', 'Cardoso', 60182895, '70591');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Camila', 'Gomes', 36463584, 'FUU00931');
+VALUES (@next, 'Camila', 'Gomes', 36463584, '00931');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Jens', 'Wirtz', 68531367,'2938829');
+VALUES (@next, 'Jens', 'Wirtz', 68531367,'29829');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
 SELECT next_val INTO @next FROM customer_sequence;
 INSERT INTO customers (id, first_name, last_name, phone_number, driving_licence_number)
-VALUES (@next, 'Ulrike', 'Eberhart', 04066894, 'E51568026');
+VALUES (@next, 'Ulrike', 'Eberhart', 04066894, '68026');
 UPDATE customer_sequence
 SET next_val = @next + 1;
 
