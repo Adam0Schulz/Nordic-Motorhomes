@@ -76,7 +76,7 @@
                 <div id="motorhome_list_cont" >
                     <div class="motorhome_list_item clickable" th:each="motorhome : ${motorhomes}">
                         <div>
-                            <img class="motorhome_small_img" src="${motorhome.image}" />
+                            <img class="motorhome_small_img" th:src="${motorhome.image}" />
 
                         </div>
                         <div>
@@ -125,7 +125,7 @@
                         </div>
                         <div class="motorhome_img_cont">
                             <div class="img_cont">
-                                <img src="${motorhome.image}" alt="motorhome image">
+                                <img th:src="${motorhome.image}" alt="motorhome image">
                             </div>
                         </div>
                     </div>
