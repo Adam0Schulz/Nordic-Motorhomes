@@ -1,7 +1,7 @@
 # Nordic Motorhomes
 
 
-# User (E)Manual
+# User Manual
 
 ### How to get the project up and running
 
