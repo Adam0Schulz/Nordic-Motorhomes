@@ -59,7 +59,7 @@
                     <input type="number" name="cpr" required>
 
                     <label>Start Date</label>
-                    <input class="date" type="date" name="start-date" required>
+                    <input class="date" type="date" name="start-date" required >
                 </div>
                 <div class="right-side">
                     <label>Last Name</label>
@@ -69,7 +69,7 @@
                     <input type="number" name="phone" required>
 
                     <label>End Date</label>
-                    <input class="date" type="date" name="end-date" required>
+                    <input class="date" type="date" name="end-date" required >
 
                     <input class="submit-button" type="submit" name="first-step" value="Next  >">
 
@@ -112,8 +112,8 @@
                     <textarea name="pickup-location"></textarea>
                     <label>Drop-off location</label>
                     <textarea name="dropoff-location"></textarea>
-                    <label>Time</label>
-                    <input class="date" type="time" name="pickup-time"/>
+                    <label class="time-label">Time</label>
+                    <input class="date time" type="time" name="pickup-time"/>
                     <input class="submit-button" type="submit" name="third-step" value="Add booking">
                 </div>
                 <div class="right-side">
@@ -132,7 +132,7 @@
 
         </div>
         <div class="graphic">
-            <img src="/images/Illustration.png" alt="illustration">
+            <img class="illustration" src="/images/Illustration.png" alt="illustration">
         </div>
 
         <div class="active-booking">
@@ -142,7 +142,7 @@
                 <thead id="activeBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><img src="/images/arrow-up-right.png" alt="arrow-icon"></th>
+                <th><img src="/images/arrow-up-right.png" alt="arrow-icon" style="cursor: pointer"></th>
                 </thead>
                 <th:block th:each="booking : ${activeBookings}">
                 <tr th:attr="id=${booking.ID}" class="booking_table_row clickable">
@@ -159,7 +159,7 @@
                 <thead id="pastBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><img src="/images/arrow-up-right.png" alt="arrow-icon"></th>
+                <th><img src="/images/arrow-up-right.png" alt="arrow-icon" style="cursor: pointer"></th>
                 </thead>
                 <th:block th:each="booking : ${pastBookings}">
                 <tr th:attr="id=${booking.ID}" class="booking_table_row clickable" >
@@ -172,7 +172,7 @@
             </table>
         </div>
         <div class="graphic2">
-            <img src="/images/Online%20calendar-amico%201%20(1).png" alt="illustration">
+            <img class="illustration" src="/images/Online%20calendar-amico%201%20(1).png" alt="illustration">
         </div>
         <div class="upcoming-bookings">
             <h2>Upcoming Bookings</h2>
@@ -180,7 +180,7 @@
                 <thead id="upcomingBookings">
                 <th>ID</th>
                 <th>Name</th>
-                <th><img src="/images/arrow-up-right.png"alt="arrow-icon"></th>
+                <th><img src="/images/arrow-up-right.png"alt="arrow-icon" style="cursor: pointer"></th>
                 </thead>
                 <th:block th:each="booking : ${futureBookings}">
                 <tr th:attr="id=${booking.ID}" class="booking_table_row clickable">

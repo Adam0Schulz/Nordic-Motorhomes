@@ -48,7 +48,10 @@ body {
 
 }
 
-.avatar {}
+.avatar {
+    height:2.5rem;
+    margin-left: 1rem;
+}
 
 .flex {
     display: flex;
