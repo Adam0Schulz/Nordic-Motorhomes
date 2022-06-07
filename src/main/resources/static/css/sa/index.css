@@ -70,6 +70,11 @@
     min-height:100vh;
 }
 
+.submit-button:hover {
+    background: #576746;
+    border: 1px solid #939878;
+}
+
 .steps { grid-area: steps; }
 
 .graphic { grid-area: graphic; }

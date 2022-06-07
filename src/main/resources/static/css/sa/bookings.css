@@ -39,6 +39,15 @@
     padding: 2em;
 }
 
+.pop-up #close-popup-btn {
+    cursor: pointer;
+    transition: transform ease-out .2s;
+}
+
+.pop-up #close-popup-btn:hover {
+    transform: scale(1.1);
+}
+
 .clickable:hover {
     background-color: lightgray;
     cursor: pointer;
@@ -75,6 +84,10 @@
     border-radius: 25px;
     text-align: left;
  
+}
+
+.popup_table tbody {
+    background-color: white;
 }
 
 .popup_table tr {

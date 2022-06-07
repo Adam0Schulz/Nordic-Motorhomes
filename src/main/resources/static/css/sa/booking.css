@@ -42,6 +42,15 @@
     padding: 2em;
 }
 
+.pop-up #close-popup-btn {
+    cursor: pointer;
+    transition: transform ease-out .2s;
+}
+
+.pop-up #close-popup-btn:hover {
+    transform: scale(1.1);
+}
+
 .pop-up button {
     background-color: var(--secondary-color);
     color: white;
