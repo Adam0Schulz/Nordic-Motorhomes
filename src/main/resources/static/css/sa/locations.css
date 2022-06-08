@@ -26,47 +26,70 @@ body {
     cursor: pointer;
 }
 .top-nav {
-    display:flex;
+    display: flex;
     justify-content: space-between;
-    height:6.5rem;
-    background-color: var(--background-color);
+    height: 6.5rem;
 }
 
 .logo {
-    height:2.2rem;
-    width:12rem;
-    margin-top: 2rem;
+    height: 2.2rem;
+    width: 12rem;
+    margin-top: 2.5rem;
     margin-left: 2.2rem;
+
 }
 
-.top-buttons{
-    margin-top:2rem;
+.top-buttons {
+    margin-top: 2.5rem;
     margin-right: 5rem;
+
 }
 
-.top-buttons>*{
+.top-buttons>* {
+    height: 3rem;
+    margin-left: 1rem;
+
+}
+
+.avatar {
     height:2.5rem;
     margin-left: 1rem;
 }
 
-.flex{
+.flex {
     display: flex;
 }
 
-.side-nav{
+.side-nav {
+    margin-top: 7rem;
     display: flex;
     flex-direction: column;
-    gap: 60px;
-    width: 160px;
-    background-color: var(--background-color);
-    align-items: flex-start;
-    padding-left: 2rem;
-    padding-top: 4rem;
-    height: 195%;
+    justify-content: space-between;
+    height: 12rem;
+    width: 5.6rem;
 }
 
-.side-nav>a>*{
-    height:1.7rem;
+.side-nav>a {
+    display: flex;
+    justify-content: center;
+}
+
+.side-nav>a>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.side-nav>a>div>* {
+    height: 1.7rem;
+}
+
+.nav-btn-active {
+    background-color: #33392C;
+    border-radius: 5px;
 }
 
 

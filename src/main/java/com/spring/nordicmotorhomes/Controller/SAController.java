@@ -65,6 +65,11 @@ public class SAController {
             @RequestParam(name = "pickup-location") String pickupLocation,
             @RequestParam(name = "dropoff-location") String dropoffLocation,
             @RequestParam(name = "pickup-time") String pickupTime) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         model.addAttribute("firstStep", true);
         Employee currentEmp = EmployeeService.getCurrentEmp();
         int CPR = Integer.parseInt(cpr);
@@ -102,6 +107,10 @@ public class SAController {
             @RequestParam(name = "start-date") String startDate,
             @RequestParam(name = "end-date") String endDate,
             @RequestParam(name = "phone") String phone) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
 
         LocalDate startDateFormatted = Date.valueOf(startDate).toLocalDate();
         LocalDate endDateFormatted = Date.valueOf(endDate).toLocalDate();
@@ -144,6 +153,9 @@ public class SAController {
             @RequestParam(name = "motorhome-id") String motorhomeID,
             @RequestParam(name = "extras-ids") List<String> extrasIDs) {
 
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
 
         model.addAttribute("thirdStep", true);
         model.addAttribute("addBookingAction", "/dashboard/sa");
@@ -170,6 +182,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/motorhomes")
     public String motorhomes(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Motorhome> motorhomes = motorhomeService.getAllMotorhomes();
         model.addAttribute("motorhomes", motorhomes);
         return "dashboard/sa/motorhomes";
@@ -178,6 +195,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/locations")
     public String locations(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> pickups = bookingService.getSortedFutureBookings();
         List<Booking> dropoffs = bookingService.getSortedActiveBookings();
         int todaysPickups = bookingService.getTodaysFutureBookings().size();
@@ -197,6 +219,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/booking/{id}")
     public String popup(Model model, @PathVariable String id) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         int ID = Integer.parseInt(id);
         Booking booking = bookingService.getBookingById((long) ID);
 
@@ -213,6 +240,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/activeBookings")
     public String activeBookings(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> activeBookings = bookingService.getActiveBookings();
         model.addAttribute("header", "Active bookings");
         model.addAttribute("bookings", activeBookings);
@@ -221,6 +253,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/pastBookings")
     public String pastBookings(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> pastBookings = bookingService.getPastBookings();
         model.addAttribute("header", "Past bookings");
         model.addAttribute("bookings", pastBookings);
@@ -229,6 +266,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/upcomingBookings")
     public String upcomingBookings(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> futureBookings = bookingService.getFutureBookings();
         model.addAttribute("header", "Upcoming bookings");
         model.addAttribute("bookings", futureBookings);
@@ -237,6 +279,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/bookings/{id}")
     public String motorhomeBookings(Model model, @PathVariable String id) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         int ID = Integer.parseInt(id);
         List<Booking> motorhomeBookings = bookingService.getBookingByMotorhomeID(ID);
         Motorhome motorhome = motorhomeService.getMotorhomeById(ID);
@@ -247,6 +294,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/upcomingPickUps")
     public String upcomingPickUps(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> futureBookings = bookingService.getSortedFutureBookings();
         model.addAttribute("header", "Upcoming pick-ups");
         model.addAttribute("bookings", futureBookings);
@@ -255,6 +307,11 @@ public class SAController {
 
     @GetMapping("/dashboard/sa/upcomingDropOffs")
     public String upcomingDropOffs(Model model) {
+
+        if(EmployeeService.getCurrentEmp() == null || !(EmployeeService.getCurrentEmp().getTitle().equals("sales assistant"))) {
+            return "redirect:/login";
+        }
+
         List<Booking> futureBookings = bookingService.getSortedActiveBookings();
         model.addAttribute("header", "Upcoming drop-offs");
         model.addAttribute("bookings", futureBookings);

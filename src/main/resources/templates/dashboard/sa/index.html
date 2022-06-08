@@ -26,20 +26,30 @@
 </head>
 <body>
 <div class="container">
-    <div class="top" th:fragment="top-bar">
+    <nav class="top-nav">
         <img class="logo" src="/images/logo-white.png" alt="logo">
         <div class="top-buttons">
             <img class="avatar" src="/images/Avatar.png" alt="avatar">
             <img id="logout-btn" class="avatar" src="/images/Group%20253.png" alt="log-out">
         </div>
 
-    </div>
-    <div class="side-bar" th:fragment="side-bar">
-        <div class="side-buttons">
-            <a href="/dashboard/sa"><img class="booking-img" src="/images/calendar.png" alt="bookings-icon"></a>
-            <a href="/dashboard/sa/motorhomes"><img src="/images/truck.png" alt="motorhomes-icon"></a>
-            <a href="/dashboard/sa/locations"><img src="/images/map-pin.png" alt="locations-icon"></a>
-        </div>
+    </nav>
+    <div class="side-nav">
+        <a href="/dashboard/sa">
+            <div class="nav-btn-active">
+                <img class="booking-img" src="/images/calendar.png" alt="bookings-icon">
+            </div>
+        </a>
+        <a href="/dashboard/sa/motorhomes">
+            <div>
+                <img src="/images/truck.png" alt="motorhomes-icon">
+            </div>
+        </a>
+        <a href="/dashboard/sa/locations">
+            <div>
+                <img src="/images/map-pin.png" alt="locations-icon">
+            </div>
+        </a>
     </div>
     <div class="main-content">
         <div class="steps">
@@ -85,7 +95,7 @@
                     <label>Motorhome</label>
                     <select name="motorhome-id" class="date">
                         <th:block th:each="motorhome : ${motorhomes}">
-                            <option th:text="${motorhome.brand} + ' - ' + ${motorhome.model} + ' - ' + ${motorhome.regNumber}" th:value="${motorhome.ID}"></option>
+                            <option th:text="${motorhome.model} + ',  ' + ${motorhome.regNumber} + ',  capacity: ' + ${motorhome.capacity}" th:value="${motorhome.ID}"></option>
                         </th:block>
                     </select>
                     <label>Extras</label>
@@ -195,6 +205,6 @@
 
     </div>
 </div>
-
+<!-- Illustrations in this project where provided by storyset.com operated by Freepik Company -->
 </body>
 </html>

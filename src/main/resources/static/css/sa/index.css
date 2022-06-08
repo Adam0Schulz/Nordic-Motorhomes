@@ -31,28 +31,73 @@
 
 }
 
-.top {
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    height: 6.5rem;
     grid-area: top;
-    display: grid;
-    grid-template-columns: 5fr 0.5fr;
+}
+
+.logo {
+    height: 2.2rem;
+    width: 12rem;
+    margin-top: 2.5rem;
+    margin-left: 2.2rem;
 
 }
 
-.side-bar {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.2fr 1fr;
-    gap: 0px 0px;
-    grid-template-areas:
-    "side-buttons side-buttons side-buttons"
-    ". . ."
-    ". . .";
+.top-buttons {
+    margin-top: 2.5rem;
+    margin-right: 5rem;
+
+}
+
+.top-buttons>* {
+    height: 3rem;
+    margin-left: 1rem;
+
+}
+
+.avatar {
+    height:2.5rem;
+    margin-left: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.side-nav {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 12rem;
+    width: auto;
     grid-area: side-bar;
-    min-width:10vh;
-
 }
-.side-buttons { grid-area: side-buttons;
-    margin-top:2rem;
+
+.side-nav>a {
+    display: flex;
+    justify-content: center;
+}
+
+.side-nav>a>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.side-nav>a>div>* {
+    height: 1.7rem;
+}
+
+.nav-btn-active {
+    background-color: #33392C;
+    border-radius: 5px;
 }
 .main-content {  display: grid;
     grid-template-columns: 1fr 1fr;
@@ -67,7 +112,7 @@
     background-color: var(--container-background);
     border-radius: 2.5rem 0 0 2.5rem;
     box-shadow: 9.375rem 6.25rem 9.375rem #3440541f;
-    min-height:100vh;
+    min-height: 100vh;
 }
 
 .submit-button:hover {

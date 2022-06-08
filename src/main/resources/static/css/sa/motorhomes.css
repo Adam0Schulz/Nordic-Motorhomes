@@ -26,6 +26,7 @@ body {
     display: flex;
     justify-content: space-between;
     height: 6.5rem;
+
 }
 
 .logo {
@@ -63,12 +64,31 @@ body {
     flex-direction: column;
     justify-content: space-between;
     height: 12rem;
-    width: auto;
+    width: 5.6em;
+
 }
 
-.side-nav>a>* {
+.side-nav>a {
+    display: flex;
+    justify-content: center;
+}
+
+.side-nav>a>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.side-nav>a>div>* {
     height: 1.7rem;
-    margin-left: 2.2rem;
+}
+
+.nav-btn-active {
+    background-color: #33392C;
+    border-radius: 5px;
 }
 
 h2 {
@@ -142,7 +162,6 @@ main {
     width: calc(100vw - 5.9rem);
     height: calc(100vh - 6.4rem);
     overflow-y: scroll;
-    margin-left: 2rem;
 }
 
 .motorhome_cont {
