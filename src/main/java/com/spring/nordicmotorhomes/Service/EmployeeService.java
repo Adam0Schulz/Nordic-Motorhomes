@@ -42,7 +42,7 @@ public class EmployeeService {
         ArrayList<Employee> employees = (ArrayList<Employee>) employeeRepository.findAll();
 
         for (Employee emp : employees) {
-            if(emp.getEmail().equals(username) || emp.getPassword().equals(password)) {
+            if(emp.getEmail().equals(username) && emp.getPassword().equals(password)) {
                 employee = emp;
                 break;
             }
